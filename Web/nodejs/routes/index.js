@@ -8,32 +8,37 @@ var uri = "mongodb+srv://poppro:reko123@reko-no8a0.gcp.mongodb.net/";
 router.get('/', function(req, res, next) {
     res.render('index', {});
 
-    /*MongoClient.connect(uri, function(err, client) {
+    MongoClient.connect(uri, function(err, client) {
         if(!err) {
             const db = client.db('reko');
             // List all the available databases
-            //db.createCollection("users", { size: 21474836 } )
             db.collection("users", function(err, collection){
                 if(!err) {
-                    collection.findOne({"user": "brian", "pass": "reko"}, function(err, item) {
+                    collection.findOne({"user": "poppro"}, function(err, item) {
                         console.log(item);
                     });
-                    /*collection.insertOne({"user": "poppro",
-                        "pass": "reko"});
+                    /*
+                    collection.insertOne({"user": "poppro",
+                        "pass": "reko",
+                     cards:
+                     { type: 'WE',
+                     title: 'Software Engineer',
+                     company: 'Facebook',
+                     from: 'Present',
+                     to: 'Future',
+                     desc: 'I worked as a software engineer at Facebook!' } }});
                     collection.insertOne({"user": "brian",
-                        "pass": "reko"});*/
-                    /*console.log(collection.collectionName);
+                        "pass": "reko"});
+                    console.log(collection.collectionName);*/
+
                 } else {
                     console.log(err);
                 }
             });
-            db.listCollections(function (err, col) {
-              console.log(col);
-            })
         } else {
             console.log(err);
         }
-    });*/
+    });
 
 });
 

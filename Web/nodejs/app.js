@@ -37,7 +37,39 @@ io.sockets.on('connection', function (socket) {
    //console.log(io.sockets.connected[id]);
 
     socket.on('push card', function (data) {
-        socket.broadcast.emit('new card', {card: data.card});
+        MongoClient.connect(uri, function(err, client) {
+            if(!err) {
+                const db = client.db('reko');
+                db.collection("users", function(err, collection){
+                    if(!err) {
+                        collection.findOne({"user": "poppro"}, function(err, item) {
+                            socket.broadcast.emit('new card', {card: item.cards[data.i]});
+                        });
+                    } else {
+                        console.log(err);
+                    }
+                });
+            } else {
+                console.log(err);
+            }
+        });
+    }).on('login', function(data) {
+        MongoClient.connect(uri, function(err, client) {
+            if(!err) {
+                const db = client.db('reko');
+                db.collection("users", function(err, collection){
+                    if(!err) {
+                        collection.findOne({"user": data.user}, function(err, item) {
+                            socket.emit('card stack', {card: item.cards});
+                        });
+                    } else {
+                        console.log(err);
+                    }
+                });
+            } else {
+                console.log(err);
+            }
+        });
     });
 });
 
