@@ -8,6 +8,9 @@
 
 import UIKit
 
-public class CardsView {
+public class CardsView: UIView {
     
+    public convenience init() {
+        self.init()
+    }
 }
