@@ -1,0 +1,470 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AFDABDC8214353DD00F1BA28 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFDABDC7214353DD00F1BA28 /* AppDelegate.swift */; };
+		AFDABDCA214353DD00F1BA28 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFDABDC9214353DD00F1BA28 /* ViewController.swift */; };
+		AFDABDCD214353DD00F1BA28 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFDABDCB214353DD00F1BA28 /* Main.storyboard */; };
+		AFDABDCF214353DF00F1BA28 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFDABDCE214353DF00F1BA28 /* Assets.xcassets */; };
+		AFDABDD2214353DF00F1BA28 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFDABDD0214353DF00F1BA28 /* LaunchScreen.storyboard */; };
+		AFDABDDD214353DF00F1BA28 /* rekoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFDABDDC214353DF00F1BA28 /* rekoTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		AFDABDD9214353DF00F1BA28 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AFDABDBC214353DD00F1BA28 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AFDABDC3214353DD00F1BA28;
+			remoteInfo = reko;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		AFDABDC4214353DD00F1BA28 /* reko.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = reko.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AFDABDC7214353DD00F1BA28 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		AFDABDC9214353DD00F1BA28 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		AFDABDCC214353DD00F1BA28 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		AFDABDCE214353DF00F1BA28 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AFDABDD1214353DF00F1BA28 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		AFDABDD3214353DF00F1BA28 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AFDABDD8214353DF00F1BA28 /* rekoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = rekoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AFDABDDC214353DF00F1BA28 /* rekoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rekoTests.swift; sourceTree = "<group>"; };
+		AFDABDDE214353DF00F1BA28 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AFDABDC1214353DD00F1BA28 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AFDABDD5214353DF00F1BA28 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AFDABDBB214353DD00F1BA28 = {
+			isa = PBXGroup;
+			children = (
+				AFDABDC6214353DD00F1BA28 /* reko */,
+				AFDABDDB214353DF00F1BA28 /* rekoTests */,
+				AFDABDC5214353DD00F1BA28 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AFDABDC5214353DD00F1BA28 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AFDABDC4214353DD00F1BA28 /* reko.app */,
+				AFDABDD8214353DF00F1BA28 /* rekoTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AFDABDC6214353DD00F1BA28 /* reko */ = {
+			isa = PBXGroup;
+			children = (
+				AFDABDC7214353DD00F1BA28 /* AppDelegate.swift */,
+				AFDABDC9214353DD00F1BA28 /* ViewController.swift */,
+				AFDABDCB214353DD00F1BA28 /* Main.storyboard */,
+				AFDABDCE214353DF00F1BA28 /* Assets.xcassets */,
+				AFDABDD0214353DF00F1BA28 /* LaunchScreen.storyboard */,
+				AFDABDD3214353DF00F1BA28 /* Info.plist */,
+			);
+			path = reko;
+			sourceTree = "<group>";
+		};
+		AFDABDDB214353DF00F1BA28 /* rekoTests */ = {
+			isa = PBXGroup;
+			children = (
+				AFDABDDC214353DF00F1BA28 /* rekoTests.swift */,
+				AFDABDDE214353DF00F1BA28 /* Info.plist */,
+			);
+			path = rekoTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AFDABDC3214353DD00F1BA28 /* reko */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AFDABDE1214353DF00F1BA28 /* Build configuration list for PBXNativeTarget "reko" */;
+			buildPhases = (
+				AFDABDC0214353DD00F1BA28 /* Sources */,
+				AFDABDC1214353DD00F1BA28 /* Frameworks */,
+				AFDABDC2214353DD00F1BA28 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = reko;
+			productName = reko;
+			productReference = AFDABDC4214353DD00F1BA28 /* reko.app */;
+			productType = "com.apple.product-type.application";
+		};
+		AFDABDD7214353DF00F1BA28 /* rekoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AFDABDE4214353DF00F1BA28 /* Build configuration list for PBXNativeTarget "rekoTests" */;
+			buildPhases = (
+				AFDABDD4214353DF00F1BA28 /* Sources */,
+				AFDABDD5214353DF00F1BA28 /* Frameworks */,
+				AFDABDD6214353DF00F1BA28 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AFDABDDA214353DF00F1BA28 /* PBXTargetDependency */,
+			);
+			name = rekoTests;
+			productName = rekoTests;
+			productReference = AFDABDD8214353DF00F1BA28 /* rekoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AFDABDBC214353DD00F1BA28 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1000;
+				LastUpgradeCheck = 1000;
+				ORGANIZATIONNAME = "Brian Lin";
+				TargetAttributes = {
+					AFDABDC3214353DD00F1BA28 = {
+						CreatedOnToolsVersion = 10.0;
+					};
+					AFDABDD7214353DF00F1BA28 = {
+						CreatedOnToolsVersion = 10.0;
+						TestTargetID = AFDABDC3214353DD00F1BA28;
+					};
+				};
+			};
+			buildConfigurationList = AFDABDBF214353DD00F1BA28 /* Build configuration list for PBXProject "reko" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = AFDABDBB214353DD00F1BA28;
+			productRefGroup = AFDABDC5214353DD00F1BA28 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AFDABDC3214353DD00F1BA28 /* reko */,
+				AFDABDD7214353DF00F1BA28 /* rekoTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AFDABDC2214353DD00F1BA28 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AFDABDD2214353DF00F1BA28 /* LaunchScreen.storyboard in Resources */,
+				AFDABDCF214353DF00F1BA28 /* Assets.xcassets in Resources */,
+				AFDABDCD214353DD00F1BA28 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AFDABDD6214353DF00F1BA28 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AFDABDC0214353DD00F1BA28 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AFDABDCA214353DD00F1BA28 /* ViewController.swift in Sources */,
+				AFDABDC8214353DD00F1BA28 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AFDABDD4214353DF00F1BA28 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AFDABDDD214353DF00F1BA28 /* rekoTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		AFDABDDA214353DF00F1BA28 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AFDABDC3214353DD00F1BA28 /* reko */;
+			targetProxy = AFDABDD9214353DF00F1BA28 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		AFDABDCB214353DD00F1BA28 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AFDABDCC214353DD00F1BA28 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		AFDABDD0214353DF00F1BA28 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AFDABDD1214353DF00F1BA28 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		AFDABDDF214353DF00F1BA28 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		AFDABDE0214353DF00F1BA28 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		AFDABDE2214353DF00F1BA28 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 86Y7FL28N9;
+				INFOPLIST_FILE = reko/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.brianlin.reko;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		AFDABDE3214353DF00F1BA28 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 86Y7FL28N9;
+				INFOPLIST_FILE = reko/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.brianlin.reko;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		AFDABDE5214353DF00F1BA28 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 86Y7FL28N9;
+				INFOPLIST_FILE = rekoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.brianlin.rekoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/reko.app/reko";
+			};
+			name = Debug;
+		};
+		AFDABDE6214353DF00F1BA28 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 86Y7FL28N9;
+				INFOPLIST_FILE = rekoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.brianlin.rekoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/reko.app/reko";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AFDABDBF214353DD00F1BA28 /* Build configuration list for PBXProject "reko" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AFDABDDF214353DF00F1BA28 /* Debug */,
+				AFDABDE0214353DF00F1BA28 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AFDABDE1214353DF00F1BA28 /* Build configuration list for PBXNativeTarget "reko" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AFDABDE2214353DF00F1BA28 /* Debug */,
+				AFDABDE3214353DF00F1BA28 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AFDABDE4214353DF00F1BA28 /* Build configuration list for PBXNativeTarget "rekoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AFDABDE5214353DF00F1BA28 /* Debug */,
+				AFDABDE6214353DF00F1BA28 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AFDABDBC214353DD00F1BA28 /* Project object */;
+}
