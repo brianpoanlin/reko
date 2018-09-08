@@ -14,22 +14,25 @@ router.get('/', function(req, res, next) {
             // List all the available databases
             db.collection("users", function(err, collection){
                 if(!err) {
-                    collection.findOne({"user": "poppro"}, function(err, item) {
+                    /*collection.findOne({"user": "poppro"}, function(err, item) {
                         console.log(item);
-                    });
-                    /*
+                    });*/
+
+                    collection.removeMany(({"user": "poppro"}));
+                    collection.removeMany(({"user": "brian"}));
+
                     collection.insertOne({"user": "poppro",
                         "pass": "reko",
                      cards:
-                     { type: 'WE',
+                     [{ type: 'WE',
                      title: 'Software Engineer',
                      company: 'Facebook',
                      from: 'Present',
                      to: 'Future',
-                     desc: 'I worked as a software engineer at Facebook!' } }});
+                     desc: 'I worked as a software engineer at Facebook!' }]
+                    });
                     collection.insertOne({"user": "brian",
                         "pass": "reko"});
-                    console.log(collection.collectionName);*/
 
                 } else {
                     console.log(err);

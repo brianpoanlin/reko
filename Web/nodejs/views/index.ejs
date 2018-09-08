@@ -5,20 +5,20 @@
 <script>
     var socket = io.connect('http://10.251.75.169:2000/');
 
-    socket.on('new card', function (data) {
+    socket.on('new_card', function (data) {
         document.getElementById('txt').innerHTML = data.card;
     });
 
     function one() {
-        socket.emit('push card', { card: 1 });
+        socket.emit('push card', { card: 1, user: 'poppro' });
     }
 
     function two() {
-        socket.emit('push card', { card: 2 });
+        socket.emit('push card', { card: 2, user: 'poppro'});
     }
 
     function three() {
-        socket.emit('push card', { card: 3 });
+        socket.emit('push card', { card: 3, user: 'poppro' });
     }
 
 
