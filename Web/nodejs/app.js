@@ -11,6 +11,10 @@ var loginRouter = require('./routes/login');
 var app = express();
 var sessionStore = new session.MemoryStore;
 
+var MongoClient = require('mongodb').MongoClient;
+
+var uri = "mongodb+srv://poppro:reko123@reko-no8a0.gcp.mongodb.net/";
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -42,8 +46,8 @@ io.sockets.on('connection', function (socket) {
                 const db = client.db('reko');
                 db.collection("users", function(err, collection){
                     if(!err) {
-                        collection.findOne({"user": "poppro"}, function(err, item) {
-                            socket.broadcast.emit('new card', {card: item.cards[data.i]});
+                        collection.findOne({"user": data.user}, function(err, item) {
+                            socket.broadcast.emit('new_card', {card: item.cards[data.card]});
                         });
                     } else {
                         console.log(err);
@@ -54,6 +58,7 @@ io.sockets.on('connection', function (socket) {
             }
         });
     }).on('login', function(data) {
+        console.log('Logged in: ' + data.user);
         MongoClient.connect(uri, function(err, client) {
             if(!err) {
                 const db = client.db('reko');
