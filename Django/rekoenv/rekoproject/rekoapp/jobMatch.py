@@ -1,6 +1,6 @@
 import json
 
-def jobMatch(requestJson):
+def jobMatchApi(requestJson):
     cardType = requestJson['type']
     title = requestJson['title']
     company = requestJson['Company']

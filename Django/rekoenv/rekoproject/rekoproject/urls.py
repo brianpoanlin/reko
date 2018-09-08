@@ -19,5 +19,5 @@ from rest_framework.routers import DefaultRouter
 from rekoapp import views
 
 urlpatterns = [
-    url(r'^jobMatch/$', views.jobMatchApi)
+    url(r'^jobMatch/$', views.jobMatchApi, name = 'jobMatch')
 ]

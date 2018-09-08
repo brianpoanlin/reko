@@ -23,7 +23,7 @@ from rest_framework.renderers import BaseRenderer
 #@login_required()
 def jobMatchApi(request):
     if request.method == 'POST':
-        res = jobMatch.jobMatch(request.data)
+        res = jobMatch.jobMatchApi(request.data)
         if res != {}:
             return Response(res, status=status.HTTP_200_OK)
         else:
