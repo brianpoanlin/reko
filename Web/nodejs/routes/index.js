@@ -42,7 +42,40 @@ router.get('/', function(req, res, next) {
                                  type: 'SK',
                                  skills: ['Javascript', 'C++', 'Java', 'Backend', 'Webservice'],
                                  id: 2
-                            }
+                             },
+                             {
+                                 type: 'ED',
+                                 school: 'University of Michigan',
+                                 degree: 'Computer Science',
+                                 month: 'April',
+                                 year: '2022',
+                                 gpa: '4.0'
+                             },
+                             {
+                                 type: 'AW',
+                                 awards: [
+                                    {
+                                        name: '',
+		                                date: ''
+                                    }
+                                ]
+                             },
+                             {
+                                 type: 'VL',
+                                 org: 'BBBS',
+                                 from: 'Sept. 2015',
+                                 to: 'March 2017',
+                                 desc: 'Mentor'
+                             },
+                             {
+                                 type: 'CW',
+                                 courses: [
+                                    {
+                                        name: 'EECS 280',
+                                        school: 'University of Michigan'
+                                    }
+                                 ]
+                             }
                          ]
                     });
                     collection.insertOne({"user": "brian",
