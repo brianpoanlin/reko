@@ -19,6 +19,7 @@ public class CardsView: UIView {
     private var viewModel: CardsViewModelProtocol =  CardsViewModel()
     public var titleLabel: UILabel = UILabel()
     public var categoryLabel: UILabel = UILabel()
+    public var id: Int = 0
     
     public var delegate: CardsViewDelegate?
     

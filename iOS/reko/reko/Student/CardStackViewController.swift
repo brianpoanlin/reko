@@ -10,10 +10,10 @@ import UIKit
 
 class CardStackViewController: UIViewController {
     
-    private var stack = [CardsView(viewModel: CardsViewModel()), CardsView(viewModel: CardsViewModelBlue()), CardsView(viewModel: CardsViewModelGreen()), CardsView(viewModel: CardsViewModelBlue())]
+    private var stack = [CardsView(viewModel: CardsViewModel()), CardsView(viewModel: CardsViewModelYellow()), CardsView(viewModel: CardsViewModelGreen()), CardsView(viewModel: CardsViewModelBlue())]
     private var focused: Bool = false
     private var originalPosition: CGPoint!
-    private var focusedCard: CardsView!
+    private var focusedTag: Int!
     
     var maskView = UIView()
 
@@ -33,7 +33,11 @@ class CardStackViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        UINavigationBar.appearance().barTintColor = UIColor.reko.red.color()
+        UINavigationBar.appearance().tintColor = UIColor.white
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor : UIColor.white]
 
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
         setupView()
         setupConstraint()
     }
@@ -93,12 +97,12 @@ class CardStackViewController: UIViewController {
 extension CardStackViewController: CardsViewDelegate {
     func swipedDown(sender: CardsView) {
         print("Dismiss")
-        if focused {
+        if focused && focusedTag == sender.tag {
             maskView.removeFromSuperview()
             focused = false
             
             UIView.animate(withDuration: 0.2, animations: {
-                sender.transform = CGAffineTransform(translationX: 0.0, y: 200.0)
+                sender.transform = CGAffineTransform(translationX: 0.0, y: 500.0)
             }, completion: { bool in
             
                 UIView.animate(withDuration: 0.5, animations: {
@@ -114,7 +118,7 @@ extension CardStackViewController: CardsViewDelegate {
     
     func swipedUp(sender: CardsView) {
         print("Swiped up!!!!!")
-        if focused {
+        if focused && focusedTag == sender.tag {
             UIView.animate(withDuration: 0.4, animations: {
                 sender.center = CGPoint(x: sender.center.x, y: sender.center.y - 600)
                 self.maskView.alpha = 0
@@ -130,22 +134,37 @@ extension CardStackViewController: CardsViewDelegate {
     func tapped(sender: CardsView) {
         if !focused {
             focused = true
+            focusedTag = sender.id
+            print(sender.id)
             maskView = UIView(frame: self.view.frame)
             maskView.backgroundColor = .black
-            
-            view.addSubview(maskView)
-            view.bringSubview(toFront: sender)
+
             self.maskView.alpha = 0.5
 
             originalPosition = sender.center
             
 
-            UIView.animate(withDuration: 0.4, animations: {
-                let translation = self.view.frame.height / 2 - sender.center.y
+            UIView.animate(withDuration: 0.3, animations: {
+                let translation = self.view.frame.height - sender.frame.height - 10 - sender.center.y
                 sender.transform = CGAffineTransform(translationX: 0.0, y: translation)
             })
             
-
+        } else if focused && focusedTag == sender.tag {
+            maskView.removeFromSuperview()
+            focused = false
+            
+            UIView.animate(withDuration: 0.2, animations: {
+                sender.transform = CGAffineTransform(translationX: 0.0, y: 500.0)
+            }, completion: { bool in
+                
+                UIView.animate(withDuration: 0.5, animations: {
+                    let translation = sender.center.y - self.originalPosition.y
+                    sender.transform = CGAffineTransform(translationX: 0.0, y: -translation)
+                }, completion: { bool in
+                    print("Resetted")
+                    self.resetCards()
+                })
+            })
         }
     }
     

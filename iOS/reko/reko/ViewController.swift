@@ -16,7 +16,6 @@ class ViewController: UIViewController {
     private var panGesture = UIPanGestureRecognizer()
     private var swipeGesture = UISwipeGestureRecognizer()
 
-
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -55,7 +54,9 @@ class ViewController: UIViewController {
         
         let stack: [CardsView] = [CardsView(viewModel: CardsViewModel()), CardsView(viewModel: CardsViewModel()), CardsView(viewModel: CardsViewModel())]
 //        present(QRCodeViewController(withContent: "brianpoanlin.com"), animated: true, completion: nil)
-        present(CardStackViewController(withStack: stack), animated: true, completion: nil)
+//        present(CardStackViewController(withStack: stack), animated: true, completion: nil)
+        let navigationController = UINavigationController(rootViewController: CardStackViewController(withStack: stack))
+        present(navigationController, animated: true, completion: nil)
 
         
 //        view.addSubview(card)

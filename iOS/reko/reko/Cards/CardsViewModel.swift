@@ -13,6 +13,7 @@ public protocol CardsViewModelProtocol {
     var title: String { get set }
     var description: String { get set }
     var color: UIColor { get set }
+    var id: Int { get set }
 }
 
 public class CardsViewModel: CardsViewModelProtocol {
@@ -23,12 +24,15 @@ public class CardsViewModel: CardsViewModelProtocol {
     public var title: String
     
     public var description: String
+    public var id: Int
     
     public init() {
         self.category = "Education"
         self.title = "University of Michigan"
         self.description = "description"
         self.color = UIColor.reko.red.color()
+        self.id = 2
+
     }
 }
 
@@ -40,12 +44,15 @@ public class CardsViewModelBlue: CardsViewModelProtocol {
     public var title: String
     
     public var description: String
-    
+    public var id: Int
+
     public init() {
         self.category = "Skill"
         self.title = "University of Michigan"
         self.description = "description"
         self.color = UIColor.reko.blue.color()
+        self.id = 3
+
     }
 }
 
@@ -57,12 +64,34 @@ public class CardsViewModelGreen: CardsViewModelProtocol {
     public var title: String
     
     public var description: String
-    
+    public var id: Int
+
     public init() {
         self.category = "Skill"
         self.title = "University of Michigan"
         self.description = "description"
         self.color = UIColor.reko.green.color()
+        self.id = 4
+
+    }
+}
+
+public class CardsViewModelYellow: CardsViewModelProtocol {
+    public var color: UIColor
+    
+    public var category: String
+    
+    public var title: String
+    
+    public var description: String
+    public var id: Int
+
+    public init() {
+        self.category = "Skill"
+        self.title = "University of Michigan"
+        self.description = "description"
+        self.color = UIColor.reko.yellow.color()
+        self.id = 5
     }
 }
 
