@@ -14,7 +14,8 @@ def jobMatchApi(requestJson):
         'company': company,
         'fromDate': fromDate,
         'toDate': toDate,
-        'desc': desc
+        'desc': desc,
+        'work': 'it work'
     }
 
     return returnJson
