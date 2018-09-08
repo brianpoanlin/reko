@@ -10,7 +10,7 @@ import UIKit
 
 extension UIColor {
     public enum reko {
-        case red, magenta, green, blue, orange, yellow
+        case red, magenta, green, blue, orange, yellow, purple
         
         public func color() -> UIColor {
             switch self {
@@ -26,6 +26,8 @@ extension UIColor {
                 return UIColor(red:0.95, green:0.47, blue:0.28, alpha:1.0)
             case .yellow:
                 return UIColor(red:0.96, green:0.68, blue:0.18, alpha:1.0)
+            case .purple:
+                return UIColor(red:0.23, green:0.21, blue:0.38, alpha:1.0)
             }
         }
     }

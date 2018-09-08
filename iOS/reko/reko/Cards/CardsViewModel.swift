@@ -67,7 +67,7 @@ public class CardsViewModelGreen: CardsViewModelProtocol {
     public var id: Int
 
     public init() {
-        self.category = "Skill"
+        self.category = "Education"
         self.title = "University of Michigan"
         self.description = "description"
         self.color = UIColor.reko.green.color()
@@ -87,11 +87,30 @@ public class CardsViewModelYellow: CardsViewModelProtocol {
     public var id: Int
 
     public init() {
-        self.category = "Skill"
-        self.title = "University of Michigan"
+        self.category = "Awards"
+        self.title = "MHacks X: Best Financial Hack"
         self.description = "description"
         self.color = UIColor.reko.yellow.color()
         self.id = 5
+    }
+}
+
+public class CardsViewModelPurple: CardsViewModelProtocol {
+    public var color: UIColor
+    
+    public var category: String
+    
+    public var title: String
+    
+    public var description: String
+    public var id: Int
+    
+    public init() {
+        self.category = "Volunteering"
+        self.title = "YMCA every sunday"
+        self.description = "description"
+        self.color = UIColor.reko.purple.color()
+        self.id = 6
     }
 }
 

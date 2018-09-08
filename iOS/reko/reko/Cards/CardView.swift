@@ -33,7 +33,8 @@ public class CardsView: UIView {
         setupView()
         setupConstraints()
         self.isUserInteractionEnabled = true
-
+        id = viewModel.id
+        
     }
     
     private func setupView() {

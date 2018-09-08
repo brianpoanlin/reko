@@ -10,7 +10,7 @@ import UIKit
 
 class CardStackViewController: UIViewController {
     
-    private var stack = [CardsView(viewModel: CardsViewModel()), CardsView(viewModel: CardsViewModelYellow()), CardsView(viewModel: CardsViewModelGreen()), CardsView(viewModel: CardsViewModelBlue())]
+    private var stack = [CardsView(viewModel: CardsViewModel()), CardsView(viewModel: CardsViewModelYellow()), CardsView(viewModel: CardsViewModelGreen()), CardsView(viewModel: CardsViewModelBlue()), CardsView(viewModel: CardsViewModelPurple())]
     private var focused: Bool = false
     private var originalPosition: CGPoint!
     private var focusedTag: Int!
@@ -83,13 +83,7 @@ class CardStackViewController: UIViewController {
     }
     
     private func resetCards() {
-        DispatchQueue.main.async {
-            self.stack.forEach({
-                $0.removeFromSuperview()
-            })
-        }
-        
-//        viewDidLoad()
+       
     }
 
 }
@@ -97,7 +91,7 @@ class CardStackViewController: UIViewController {
 extension CardStackViewController: CardsViewDelegate {
     func swipedDown(sender: CardsView) {
         print("Dismiss")
-        if focused && focusedTag == sender.tag {
+        if focused && focusedTag == sender.id {
             maskView.removeFromSuperview()
             focused = false
             
@@ -113,17 +107,33 @@ extension CardStackViewController: CardsViewDelegate {
                     self.resetCards()
                 })
             })
+        } else if !focused {
+            focused = true
+            focusedTag = sender.id
+            print(sender.id)
+            maskView = UIView(frame: self.view.frame)
+            maskView.backgroundColor = .black
+            
+            self.maskView.alpha = 0.5
+            
+            originalPosition = sender.center
+            
+            
+            UIView.animate(withDuration: 0.3, animations: {
+                let translation = self.view.frame.height - sender.frame.height / 2 - 20 - sender.center.y
+                sender.transform = CGAffineTransform(translationX: 0.0, y: translation)
+            })
         }
     }
     
     func swipedUp(sender: CardsView) {
         print("Swiped up!!!!!")
-        if focused && focusedTag == sender.tag {
+        if focused && focusedTag == sender.id {
+            view.bringSubview(toFront: sender)
             UIView.animate(withDuration: 0.4, animations: {
-                sender.center = CGPoint(x: sender.center.x, y: sender.center.y - 600)
+                sender.center = CGPoint(x: sender.center.x, y: sender.center.y - 1000)
                 self.maskView.alpha = 0
             }, completion: { bool in
-                self.maskView.removeFromSuperview()
                 sender.removeFromSuperview()
             })
             
@@ -145,11 +155,11 @@ extension CardStackViewController: CardsViewDelegate {
             
 
             UIView.animate(withDuration: 0.3, animations: {
-                let translation = self.view.frame.height - sender.frame.height - 10 - sender.center.y
+                let translation = self.view.frame.height - sender.frame.height / 2 - 20 - sender.center.y
                 sender.transform = CGAffineTransform(translationX: 0.0, y: translation)
             })
             
-        } else if focused && focusedTag == sender.tag {
+        } else if focused && focusedTag == sender.id {
             maskView.removeFromSuperview()
             focused = false
             
