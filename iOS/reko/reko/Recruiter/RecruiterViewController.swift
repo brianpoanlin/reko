@@ -18,6 +18,22 @@ class RecruiterViewController: UIViewController {
     private let waitingLabel = UILabel()
     private let yesButton = YesButton()
     private let noButton = NoButton()
+    private var focused = false {
+        didSet {
+            if focused {
+                yesButton.alpha = 1
+                yesButton.isEnabled = true
+                noButton.alpha = 1
+                noButton.isEnabled = true
+            } else {
+                yesButton.alpha = 0
+                yesButton.isEnabled = false
+                noButton.alpha = 0
+                noButton.isEnabled = false
+
+            }
+        }
+    }
 
     private var currentCard: CardsView!
     
@@ -61,7 +77,7 @@ class RecruiterViewController: UIViewController {
     private func setupLabel() {
         waitingLabel.text = "Waiting..."
         waitingLabel.textAlignment = .center
-        waitingLabel.textColor = UIColor.reko.red.color()
+        waitingLabel.textColor = UIColor.black
         view.addSubview(waitingLabel)
         
         waitingLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -75,14 +91,18 @@ class RecruiterViewController: UIViewController {
     
     @objc
     private func handleYes() {
-        dismissView(view.viewWithTag(1000))
-        socket.sendImpression(type: currentCard.viewModel.category, impression: true)
+        if focused {
+            dismissView(view.viewWithTag(1000))
+            socket.sendImpression(type: currentCard.viewModel.category, impression: true)
+        }
     }
     
     @objc
     private func handleNo() {
-        dismissView(view.viewWithTag(1000))
-        socket.sendImpression(type: currentCard.viewModel.category, impression: false)
+        if focused {
+            dismissView(view.viewWithTag(1000))
+            socket.sendImpression(type: currentCard.viewModel.category, impression: false)
+        }
     }
     
     private func addAnimation() {
@@ -155,7 +175,7 @@ extension RecruiterViewController: SocketDelegate {
     func receivedNewCard(data: [Any]) {
 //        print(data)
         self.view.viewWithTag(1000)?.removeFromSuperview()
-        
+        focused = false
 //        view.subviews.forEach({
 //            $0.removeFromSuperview()
 //        })
@@ -182,6 +202,7 @@ extension RecruiterViewController: SocketDelegate {
                 newCard.tag = 1000
                 
                 view.addSubview(newCard)
+                focused = true
                 newCard.translatesAutoresizingMaskIntoConstraints = false
                 newCard.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 1, constant: -20).isActive = true
                 newCard.heightAnchor.constraint(equalToConstant: 500).isActive = true
