@@ -40,6 +40,7 @@ def read_mongo(connection, collection, recruiter_id, user_id):
     trainData = pd.DataFrame(trainData, columns = ['we', 'ed', 'sk', 'aw', 'vl', 'cw', 'ot', 'result'])
     testData = pd.DataFrame(testData, columns = ['we', 'ed', 'sk', 'aw', 'vl', 'cw', 'ot', 'result'])
 
+    print (trainData)
     print (testData)
 
 
@@ -63,7 +64,9 @@ def jobPredict(X_train, y_train, X_predict):
     X_te = X_te.dropna()
     accuracy = model.score(X_te, y_te)
 
-    return prediction_prob[:,1], accuracy
+    print (prediction_prob[:,1])
+
+    return pd.DataFrame(prediction_prob[:,1]), accuracy
 
 def jobMatchApi(requestJson):
     connection = 'mongodb+srv://poppro:reko123@reko-no8a0.gcp.mongodb.net/'
@@ -83,7 +86,7 @@ def jobMatchApi(requestJson):
 
     returnJson = {
         'student_id': student_id,
-        'jobMatchProb': jobMatchProb,
+        'jobMatchProb': jobMatchProb * 100,
         'accuracy': accuracy
     }
 
