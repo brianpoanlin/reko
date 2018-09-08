@@ -21,8 +21,8 @@ class RecruiterViewController: UIViewController {
         
         view.backgroundColor = .white
 
-        self.view.addSubview(self.cardView)
-        self.setupCardConstraints()
+//        self.view.addSubview(self.cardView)
+//        self.setupCardConstraints()
         // Do any additional setup after loading the view.
     }
     
@@ -76,23 +76,27 @@ extension RecruiterViewController: SocketDelegate {
             if let cardArray: JSON = array.first {
                 let card = cardArray["card"]
                 print(card["type"].stringValue)
-//                let viewModel = CardsViewModel(type: card["type"].stringValue, title: card["title"].stringValue, description: card["description"].stringValue, id: card["id"].intValue)
-                let viewModel = CardsViewModel(type: CardType.PersonalInfo, elements: ["hunter", "lol"], id: 0)
+                let type = card["type"].stringValue.type()
+                let id = card["id"].intValue
+                
+                var strings = [String]()
+                
+                if let elements = card["elements"].arrayObject {
+                    for element in elements {
+                        strings.append(element as! String)
+                    }
+                }
+
+                let viewModel = CardsViewModel(type: type, elements: strings, id: id)
                 let newCard = CardsView(viewModel: viewModel)
+                
                 view.addSubview(newCard)
                 newCard.translatesAutoresizingMaskIntoConstraints = false
                 newCard.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 1, constant: -20).isActive = true
                 newCard.heightAnchor.constraint(equalToConstant: 500).isActive = true
                 newCard.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
                 newCard.topAnchor.constraint(equalTo: view.topAnchor, constant: -500).isActive = true
-                
-                newCard.categoryLabel.translatesAutoresizingMaskIntoConstraints = false
-                newCard.categoryLabel.topAnchor.constraint(equalTo: newCard.topAnchor, constant: 20).isActive = true
-                newCard.categoryLabel.leadingAnchor.constraint(equalTo: newCard.leadingAnchor, constant: 20).isActive = true
-                
-                newCard.titleLabel.translatesAutoresizingMaskIntoConstraints = false
-                newCard.titleLabel.topAnchor.constraint(equalTo: newCard.categoryLabel.bottomAnchor, constant: 10).isActive = true
-                newCard.titleLabel.leadingAnchor.constraint(equalTo: newCard.leadingAnchor, constant: 20).isActive = true
+                newCard.setupSubviewConstraints()
                 
                 DispatchQueue.main.async {
                     UIView.animate(withDuration: 0.5, animations: {
