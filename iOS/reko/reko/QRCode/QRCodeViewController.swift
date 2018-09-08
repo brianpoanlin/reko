@@ -12,14 +12,16 @@ import QRCodeGenerator
 class QRCodeViewController: UIViewController {
 
     fileprivate var qrCodeImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 200, height: 200))
+    fileprivate var instructionLabel: UILabel = UILabel()
     
     public init() {
         super.init(nibName: nil, bundle: nil)
         self.view.backgroundColor = .white
     }
     
-    public convenience init(withContent: String) {
+    public convenience init(withContent content: String) {
         self.init()
+        instructionLabel.text = content
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -28,15 +30,15 @@ class QRCodeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        qrCodeImageView.image = RekoCodeGenerator.generatedQRCode(withCode: "brianlin.com", size: qrCodeImageView.frame.size)
-        view.addSubview(qrCodeImageView)
-
+        
+        setUpViews()
         setUpConstraints()
-        // Do any additional setup after loading the view.
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        
+    private func setUpViews() {
+        qrCodeImageView.image = RekoCodeGenerator.generatedQRCode(withCode: "brianlin.com", size: qrCodeImageView.frame.size)
+        view.addSubview(qrCodeImageView)
+        view.addSubview(instructionLabel)
     }
     
     private func setUpConstraints() {
@@ -45,7 +47,13 @@ class QRCodeViewController: UIViewController {
         qrCodeImageView.heightAnchor.constraint(equalToConstant: 200).isActive = true
         qrCodeImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         qrCodeImageView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-
+        
+        let margins = view.layoutMarginsGuide
+        instructionLabel.translatesAutoresizingMaskIntoConstraints = false
+        instructionLabel.leadingAnchor.constraint(equalTo: margins.leadingAnchor, constant: 20).isActive = true
+        instructionLabel.leadingAnchor.constraint(equalTo: margins.trailingAnchor, constant: 20).isActive = true
+        instructionLabel.topAnchor.constraint(equalTo: margins.topAnchor, constant: 20).isActive = true
+        instructionLabel.heightAnchor.constraint(equalToConstant: 50)
     }
 
     override func didReceiveMemoryWarning() {
