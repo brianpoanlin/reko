@@ -6,15 +6,18 @@
 //  Copyright © 2018 Brian Lin. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 public protocol CardsViewModelProtocol {
     var category: String { get set }
     var title: String { get set }
     var description: String { get set }
+    var color: UIColor { get set }
 }
 
 public class CardsViewModel: CardsViewModelProtocol {
+    public var color: UIColor
+    
     public var category: String
     
     public var title: String
@@ -23,7 +26,8 @@ public class CardsViewModel: CardsViewModelProtocol {
     
     public init() {
         self.category = "Education"
-        self.title = "My Education"
+        self.title = "University of Michigan"
         self.description = "description"
+        self.color = UIColor.reko.red.color()
     }
 }
