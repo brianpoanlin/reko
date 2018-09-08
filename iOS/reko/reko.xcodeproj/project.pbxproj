@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		8D965BA34A1BEEF768A25082 /* Pods_rekoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6B600CAA062C1F76F7037DA /* Pods_rekoTests.framework */; };
+		AF36312A21438D06005337F7 /* StudentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF36312921438D06005337F7 /* StudentViewController.swift */; };
+		AF36312C21438DCB005337F7 /* CardStackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF36312B21438DCB005337F7 /* CardStackViewController.swift */; };
 		AF4F942E2143683A00E744FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4F942D2143683A00E744FE /* AppDelegate.swift */; };
 		AF4F94302143683A00E744FE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4F942F2143683A00E744FE /* ViewController.swift */; };
 		AF4F94332143683A00E744FE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF4F94312143683A00E744FE /* Main.storyboard */; };
@@ -36,6 +38,8 @@
 		3104F97C01F82ADCDF170BC5 /* Pods-reko.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-reko.debug.xcconfig"; path = "Pods/Target Support Files/Pods-reko/Pods-reko.debug.xcconfig"; sourceTree = "<group>"; };
 		40C0093B2CFE810D422DC466 /* Pods-rekoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rekoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-rekoTests/Pods-rekoTests.release.xcconfig"; sourceTree = "<group>"; };
 		8F02F4D45E7A3C261D8DA830 /* Pods_reko.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_reko.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AF36312921438D06005337F7 /* StudentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentViewController.swift; sourceTree = "<group>"; };
+		AF36312B21438DCB005337F7 /* CardStackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardStackViewController.swift; sourceTree = "<group>"; };
 		AF4F942A2143683A00E744FE /* reko.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = reko.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF4F942D2143683A00E744FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AF4F942F2143683A00E744FE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -85,6 +89,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		AF36312821438CDE005337F7 /* Student */ = {
+			isa = PBXGroup;
+			children = (
+				AF36312921438D06005337F7 /* StudentViewController.swift */,
+				AF36312B21438DCB005337F7 /* CardStackViewController.swift */,
+			);
+			path = Student;
+			sourceTree = "<group>";
+		};
 		AF4F94212143683A00E744FE = {
 			isa = PBXGroup;
 			children = (
@@ -110,6 +123,7 @@
 			children = (
 				AF4F942D2143683A00E744FE /* AppDelegate.swift */,
 				AF4F942F2143683A00E744FE /* ViewController.swift */,
+				AF36312821438CDE005337F7 /* Student */,
 				AF6A44C221437F2200106C33 /* Colors */,
 				AF6A44BD21437E0100106C33 /* Cards */,
 				AFBAD1C62143699F00F65C16 /* QRCode */,
@@ -334,8 +348,10 @@
 				AF4F942E2143683A00E744FE /* AppDelegate.swift in Sources */,
 				AF6A44C121437E3500106C33 /* CardsViewModel.swift in Sources */,
 				AFBAD1CA21436DE400F65C16 /* QRCodeViewController.swift in Sources */,
+				AF36312A21438D06005337F7 /* StudentViewController.swift in Sources */,
 				AFBAD1C8214369BA00F65C16 /* RekoCodeGenerator.swift in Sources */,
 				AF6A44C421437F3200106C33 /* reko+UIColor.swift in Sources */,
+				AF36312C21438DCB005337F7 /* CardStackViewController.swift in Sources */,
 				AF6A44BF21437E1600106C33 /* CardView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -40,10 +40,6 @@ class ViewController: UIViewController {
         UIView.animate(withDuration: 0.5, animations: {
             self.card.center = CGPoint(x: self.card.center.x, y: self.card.center.y - 600)
             })
-//        self.view.bringSubview(toFront: card)
-//        let translation = sender.translation(in: self.view)
-//        card.center = CGPoint(x: card.center.x, y: card.center.y + translation.y)
-//        sender.setTranslation(CGPoint.zero, in: self.view)
     }
 
     
@@ -56,9 +52,14 @@ class ViewController: UIViewController {
     }
 
     @IBAction func tapped(_ sender: Any) {
+        
+        let stack: [CardsView] = [CardsView(viewModel: CardsViewModel()), CardsView(viewModel: CardsViewModel()), CardsView(viewModel: CardsViewModel())]
 //        present(QRCodeViewController(withContent: "brianpoanlin.com"), animated: true, completion: nil)
-        view.addSubview(card)
-        setupCardConstraints()
+        present(CardStackViewController(withStack: stack), animated: true, completion: nil)
+
+        
+//        view.addSubview(card)
+//        setupCardConstraints()
     }
     
     private func setupCardConstraints() {
