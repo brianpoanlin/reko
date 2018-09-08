@@ -188,6 +188,14 @@ extension CardStackViewController: CardsViewDelegate {
 }
 
 extension CardStackViewController: SocketDelegate {
+    func startedSession() {
+        
+    }
+    
+    func endedSession() {
+        
+    }
+    
     func receivedNewCard(data: [Any]) {
         
     }

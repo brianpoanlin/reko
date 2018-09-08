@@ -62,10 +62,10 @@ class ViewController: UIViewController {
 
     @IBAction func tappedStudent(_ sender: Any) {
         
-        let stack: [CardsView] = [CardsView(viewModel: CardsViewModel(type: CardType.PersonalInfo, elements: ["hunter", "lol"], id: 0))]
+//        let stack: [CardsView] = [CardsView(viewModel: CardsViewModel(type: CardType.PersonalInfo, elements: ["hunter", "lol"], id: 0))]
 //        present(QRCodeViewController(withContent: "brianpoanlin.com"), animated: true, completion: nil)
 //        present(CardStackViewController(withStack: stack), animated: true, completion: nil)
-        let navigationController = UINavigationController(rootViewController: CardStackViewController(withStack: stack))
+        let navigationController = UINavigationController(rootViewController: QRCodeViewController(withContent: "brianlin.com"))
         present(navigationController, animated: true, completion: nil)
         
 
@@ -77,7 +77,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func tappedRecruiter(_ sender: Any) {
-        let navigationController = UINavigationController(rootViewController: RecruiterViewController())
+        let navigationController = UINavigationController(rootViewController: QRScannerViewController())
         present(navigationController, animated: true, completion: nil)
     }
     
@@ -100,6 +100,14 @@ class ViewController: UIViewController {
 }
 
 extension ViewController: SocketDelegate {
+    func startedSession() {
+        
+    }
+    
+    func endedSession() {
+        
+    }
+    
     func receivedCardStack(data: [Any]) {
         
     }

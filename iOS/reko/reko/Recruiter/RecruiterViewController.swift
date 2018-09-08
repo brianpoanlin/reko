@@ -35,13 +35,7 @@ class RecruiterViewController: UIViewController {
         navigationController?.navigationBar.tintColor = UIColor.reko.red.color()
 
 
-
-//        UINavigationBar.appearance().barTintColor = UIColor.reko.red.color()
-//        UINavigationBar.appearance().tintColor = UIColor.red
         UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor : UIColor.reko.red.color()]
-//        self.view.addSubview(self.cardView)
-//        self.setupCardConstraints()
-        // Do any additional setup after loading the view.
     }
     
     private func setupYes() {
@@ -146,6 +140,14 @@ class RecruiterViewController: UIViewController {
 }
 
 extension RecruiterViewController: SocketDelegate {
+    func startedSession() {
+        
+    }
+    
+    func endedSession() {
+        
+    }
+    
     func receivedCardStack(data: [Any]) {
         
     }

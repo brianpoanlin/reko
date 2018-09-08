@@ -12,15 +12,19 @@ import AVKit
 
 class QRScannerViewController: UIViewController {
 
-    @IBOutlet weak var imgView: UIImageView!
+    private var imgView: UIImageView!
     
     private var session = AVCaptureSession()
     private let visionQueue = DispatchQueue(label: "com.brianlin.seko_qr")
     private var requests = [VNRequest]()
     private var foundResult = false
+    private let client = Socket()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .white
+        imgView = UIImageView(frame: self.view.frame)
+        view.addSubview(imgView)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -87,6 +91,7 @@ class QRScannerViewController: UIViewController {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: {
             let navigationController = UINavigationController(rootViewController: RecruiterViewController())
             self.present(navigationController, animated: true, completion: nil)
+            
         })
     }
 }
