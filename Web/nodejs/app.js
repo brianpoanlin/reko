@@ -36,7 +36,7 @@ app.use(session({
 var io = require('socket.io')(2000);
 
 io.sockets.on('connection', function (socket) {
-    console.log(socket.id);
+    console.log('Connection');
     let id = socket.id;
    //console.log(io.sockets.connected[id]);
 
@@ -47,6 +47,7 @@ io.sockets.on('connection', function (socket) {
                 db.collection("users", function(err, collection){
                     if(!err) {
                         collection.findOne({"user": data.user}, function(err, item) {
+                            console.log(item.cards[data.card]);
                             socket.broadcast.emit('new_card', {card: item.cards[data.card]});
                         });
                     } else {

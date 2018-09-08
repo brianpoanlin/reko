@@ -1,32 +1,5 @@
 <!DOCTYPE html>
 <html>
-<script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
-<script src="https://code.jquery.com/jquery-1.11.1.js"></script>
-<script>
-    var socket = io.connect('http://10.251.75.169:2000/');
-
-    socket.on('new_card', function (data) {
-        document.getElementById('txt').innerHTML = data.card;
-    });
-
-    function one() {
-        socket.emit('push card', { card: 1, user: 'poppro' });
-    }
-
-    function two() {
-        socket.emit('push card', { card: 2, user: 'poppro'});
-    }
-
-    function three() {
-        socket.emit('push card', { card: 3, user: 'poppro' });
-    }
-
-
-</script>
 <body>
-<div id="txt"> Hello! </div>
-<button onclick="one()">1</button>
-<button onclick="two()">2</button>
-<button onclick="three()">3</button>
 </body>
 </html>
