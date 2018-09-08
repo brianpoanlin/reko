@@ -31,3 +31,20 @@ public class CardsViewModel: CardsViewModelProtocol {
         self.color = UIColor.reko.red.color()
     }
 }
+
+public class CardsViewModelBlue: CardsViewModelProtocol {
+    public var color: UIColor
+    
+    public var category: String
+    
+    public var title: String
+    
+    public var description: String
+    
+    public init() {
+        self.category = "Skill"
+        self.title = "University of Michigan"
+        self.description = "description"
+        self.color = UIColor.blue
+    }
+}

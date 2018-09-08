@@ -10,7 +10,7 @@ import UIKit
 
 class CardStackViewController: UIViewController {
     
-    private var stack = [CardsView(viewModel: CardsViewModel()), CardsView(viewModel: CardsViewModel()), CardsView(viewModel: CardsViewModel())]
+    private var stack = [CardsView(viewModel: CardsViewModel()), CardsView(viewModel: CardsViewModelBlue()), CardsView(viewModel: CardsViewModel()), CardsView(viewModel: CardsViewModelBlue())]
     
     private init() {
         super.init(nibName: nil, bundle: nil)
@@ -42,8 +42,16 @@ class CardStackViewController: UIViewController {
         stack[0].translatesAutoresizingMaskIntoConstraints = false
         stack[0].widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 1, constant: -20).isActive = true
         stack[0].heightAnchor.constraint(equalToConstant: 200).isActive = true
-        stack[0].topAnchor.constraint(equalTo: view.topAnchor, constant: 40).isActive = true
+        stack[0].topAnchor.constraint(equalTo: view.topAnchor, constant: 80).isActive = true
         stack[0].centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        
+        stack[0].categoryLabel.translatesAutoresizingMaskIntoConstraints = false
+        stack[0].categoryLabel.topAnchor.constraint(equalTo: stack[0].topAnchor, constant: 20).isActive = true
+        stack[0].categoryLabel.leadingAnchor.constraint(equalTo: stack[0].leadingAnchor, constant: 20).isActive = true
+        
+        stack[0].titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        stack[0].titleLabel.topAnchor.constraint(equalTo: stack[0].categoryLabel.bottomAnchor, constant: 10).isActive = true
+        stack[0].titleLabel.leadingAnchor.constraint(equalTo: stack[0].leadingAnchor, constant: 20).isActive = true
 
         
         for i in 1..<stack.count {
