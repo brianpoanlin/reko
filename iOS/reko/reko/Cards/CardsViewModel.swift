@@ -26,14 +26,17 @@ public class CardsViewModel: CardsViewModelProtocol {
     public var description: String
     public var id: Int
     
-    public init() {
-        self.category = "Education"
-        self.title = "University of Michigan"
-        self.description = "description"
-        self.color = UIColor.reko.red.color()
-        self.id = 2
+    private var colorMap: [String: UIColor] = [ "WE" : UIColor.reko.orange.color()]
+    
+    public init(type: String, title: String, description: String, id: Int) {
+        self.category = type
+        self.title = title
+        self.description = description
+        self.color = colorMap[category] ?? UIColor.reko.red.color()
+        self.id = id
 
     }
+    
 }
 
 public class CardsViewModelBlue: CardsViewModelProtocol {

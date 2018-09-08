@@ -12,7 +12,7 @@ import QRCodeGenerator
 class ViewController: UIViewController {
     
     private let qrcode = UIImageView(frame: CGRect(x: 100, y: 100, width: 200, height: 200))
-    private var card = CardsView(viewModel: CardsViewModel())
+    private var card = CardsView(viewModel: CardsViewModelGreen())
     private var panGesture = UIPanGestureRecognizer()
     private var swipeGesture = UISwipeGestureRecognizer()
     private let socket = Socket()
@@ -59,7 +59,7 @@ class ViewController: UIViewController {
 
     @IBAction func tappedStudent(_ sender: Any) {
         
-        let stack: [CardsView] = [CardsView(viewModel: CardsViewModel()), CardsView(viewModel: CardsViewModel()), CardsView(viewModel: CardsViewModel())]
+        let stack: [CardsView] = [CardsView(viewModel: CardsViewModelGreen()), CardsView(viewModel: CardsViewModelGreen()), CardsView(viewModel: CardsViewModelGreen())]
 //        present(QRCodeViewController(withContent: "brianpoanlin.com"), animated: true, completion: nil)
 //        present(CardStackViewController(withStack: stack), animated: true, completion: nil)
         let navigationController = UINavigationController(rootViewController: CardStackViewController(withStack: stack))
@@ -71,6 +71,11 @@ class ViewController: UIViewController {
         
 //        view.addSubview(card)
 //        setupCardConstraints()
+    }
+    
+    @IBAction func tappedRecruiter(_ sender: Any) {
+        let navigationController = UINavigationController(rootViewController: RecruiterViewController())
+        present(navigationController, animated: true, completion: nil)
     }
     
     private func setupCardConstraints() {

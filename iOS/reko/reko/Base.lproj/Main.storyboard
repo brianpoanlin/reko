@@ -23,7 +23,15 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Student"/>
                                 <connections>
-                                    <action selector="tapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jIf-Zg-D67"/>
+                                    <action selector="tappedStudent:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Tbk-hv-Kmf"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="euC-yb-meb">
+                                <rect key="frame" x="156" y="255" width="63" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Recruiter"/>
+                                <connections>
+                                    <action selector="tappedRecruiter:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ddr-w5-HaN"/>
                                 </connections>
                             </button>
                         </subviews>

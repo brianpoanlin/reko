@@ -10,7 +10,7 @@ import UIKit
 
 class CardStackViewController: UIViewController {
     
-    private var stack = [CardsView(viewModel: CardsViewModel()), CardsView(viewModel: CardsViewModelYellow()), CardsView(viewModel: CardsViewModelGreen()), CardsView(viewModel: CardsViewModelBlue()), CardsView(viewModel: CardsViewModelPurple())]
+    private var stack = [CardsView(viewModel: CardsViewModelGreen()), CardsView(viewModel: CardsViewModelYellow()), CardsView(viewModel: CardsViewModelGreen()), CardsView(viewModel: CardsViewModelBlue()), CardsView(viewModel: CardsViewModelPurple())]
     private var focused: Bool = false
     private var originalPosition: CGPoint!
     private var focusedTag: Int!
