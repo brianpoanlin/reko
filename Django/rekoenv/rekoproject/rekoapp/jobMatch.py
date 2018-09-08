@@ -64,9 +64,7 @@ def jobPredict(X_train, y_train, X_predict):
     X_te = X_te.dropna()
     accuracy = model.score(X_te, y_te)
 
-    print (prediction_prob[:,1])
-
-    return pd.DataFrame(prediction_prob[:,1]), accuracy
+    return prediction_prob[:,1], accuracy
 
 def jobMatchApi(requestJson):
     connection = 'mongodb+srv://poppro:reko123@reko-no8a0.gcp.mongodb.net/'
