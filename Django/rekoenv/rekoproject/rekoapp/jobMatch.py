@@ -15,47 +15,76 @@ from sklearn.neighbors import KNeighborsClassifier
 from sklearn.model_selection import train_test_split
 from sklearn import preprocessing
 
-def connect_mongo(host, port, username, password, db):
-    if username and password:
-        mongo_uri = 'mongodb://%s:%s@%s:%s/%s' % (username, password, host, port, db)
-        conn = MongoClient(mongo_uri)
-    else:
-        conn = MongoClient(host, port)
-
-
-    return conn[db]
-
-def read_mongo(db_details, recruiter_id, user_id):
+def read_mongo(connection, collection, recruiter_id, user_id):
     # Connect to MongoDB
-    db = connect_mongo(host = db_details['host'], port = db_details['port'], username = db_details['user'], password = db_details['pass'], db = db_details['db'])
+    conn = MongoClient(connection)
+
+    db = conn['reko']
 
     # Make a query to the specific DB and Collection
-    collection = db[db_details['collection']]
-    recruiter = collection[recruiter_id]
-    impTable = recruiter['imp']
+    collection = db.users
 
     # Expand the cursor and construct the DataFrame
+    data = pd.DataFrame(list(collection.find({'user': 'brian'})))
+
+    ratingsList = []
+    testData = []
+    trainData = []
+    imp = data['imp']
+    for x in imp:
+        for y in x:
+            if (y['ratings']['result'] == -1):
+                testData.append(y['ratings'])
+            else:
+                trainData.append(y['ratings'])
+    trainData = pd.DataFrame(trainData, columns = ['we', 'ed', 'sk', 'aw', 'vl', 'cw', 'ot', 'result'])
+    testData = pd.DataFrame(testData, columns = ['we', 'ed', 'sk', 'aw', 'vl', 'cw', 'ot', 'result'])
+
+    print (testData)
 
 
+    return trainData, testData
+
+def jobPredict(X_train, y_train, X_predict):
+    model = GradientBoostingClassifier(n_estimators = 1000, learning_rate = 1, max_depth = 1, random_state = 0)
+    #model = RandomForestClassifier(n_estimators = 1000)
+    #model = AdaBoostClassifier(n_estimators = 1000, learning_rate = 1, max_depth = 1, random_state = 0)
+    #model = LogisticRegression()
+    #model = GaussianNB()
+    #model = SVC()
+    #model = KNeighborsClassifier(n_neighbors = 1000)
+
+    X_tr, X_te, y_tr, y_te = train_test_split(X_train, y_train, test_size=0.2, random_state=42)
+
+    model.fit(X_tr, y_tr)
+
+    prediction_prob = model.predict_proba(X_predict)
+
+    X_te = X_te.dropna()
+    accuracy = model.score(X_te, y_te)
+
+    return prediction_prob[:,1], accuracy
 
 def jobMatchApi(requestJson):
-    db_details = {
-        "host":
-        "port":
-        "user":
-        "pass":
-        "db":
-    }
-    collection = "users"
+    connection = 'mongodb+srv://poppro:reko123@reko-no8a0.gcp.mongodb.net/'
+    collection = 'users'
     student_id = requestJson['student_id']
     recruiter_id = requestJson['recruiter_id']
 
-    impTable = read_mongo(db_details, recruiter_id, user_id)
+    trainData, testData = read_mongo(connection, collection, recruiter_id, student_id)
 
-    jobMatchProb = 0
+    X_cols = ['we', 'ed', 'sk', 'aw', 'vl', 'cw', 'ot']
+
+    X_train = trainData[X_cols]
+    y_train = trainData['result']
+
+    X_predict = testData[X_cols]
+    jobMatchProb, accuracy = jobPredict(X_train, y_train, X_predict)
 
     returnJson = {
         'student_id': student_id,
-        'impTable': impTable
+        'jobMatchProb': jobMatchProb,
+        'accuracy': accuracy
     }
+
     return returnJson
