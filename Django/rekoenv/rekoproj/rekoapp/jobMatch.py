@@ -1,6 +1,8 @@
 import json
+import django
 
-def jobMatchApi(requestJson):
+
+def jobMatch(requestJson):
     cardType = requestJson['type']
     title = requestJson['title']
     company = requestJson['Company']
@@ -14,8 +16,7 @@ def jobMatchApi(requestJson):
         'company': company,
         'fromDate': fromDate,
         'toDate': toDate,
-        'desc': desc,
-        'work': 'it work'
+        'desc': desc
     }
 
     return returnJson
