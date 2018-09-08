@@ -10,7 +10,6 @@ from rest_framework import status
 from rekoapp import jobMatch
 import json
 
-from oauth2_provider.views.generic import ProtectedResourceView
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 
@@ -22,12 +21,21 @@ from rest_framework.renderers import BaseRenderer
 
 @api_view(['POST'])
 #@login_required()
-def predictAPI(request):
+def jobMatchApi(request):
     if request.method == 'POST':
         res = jobMatch.jobMatch(request.data)
         if res != {}:
             return Response(res, status=status.HTTP_200_OK)
         else:
-        return Response({'Error': 'Something went wrong :p'}, status=status.HTTP_400_BAD_REQUEST)
+            return Response({'Error': 'Something went wrong :p'}, status=status.HTTP_400_BAD_REQUEST)
     else:
         return Response({'Error': 'Worng Method call'}, status=status.HTTP_400_BAD_REQUEST)
+
+class BinaryFileRenderer(BaseRenderer):
+    media_type = 'application/octet-stream'
+    format = None
+    charset = None
+    render_style = 'binary'
+
+    def render(self, data, media_type=None, renderer_context=None):
+        return data
