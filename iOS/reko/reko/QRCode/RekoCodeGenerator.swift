@@ -11,9 +11,9 @@ import QRCodeGenerator
 
 public class RekoCodeGenerator {
     
-    public class func generatedQRCode(withCode content: String) -> UIImage? {
+    public class func generatedQRCode(withCode content: String, size: CGSize) -> UIImage? {
         let code = try! QRCode(content, .M)
-        return UIImage.qrCodeImage(code, CGSize(width: 200, height: 200))
+        return UIImage.qrCodeImage(code, size)
     }
     
 }
