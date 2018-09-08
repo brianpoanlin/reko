@@ -7,19 +7,26 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 class CardStackViewController: UIViewController {
     
-    private var stack = [CardsView(viewModel: CardsViewModel()), CardsView(viewModel: CardsViewModelYellow()), CardsView(viewModel: CardsViewModelGreen()), CardsView(viewModel: CardsViewModelBlue()), CardsView(viewModel: CardsViewModelPurple())]
+//    private var stack = [CardsView(viewModel: CardsViewModelGreen()), CardsView(viewModel: CardsViewModelYellow()), CardsView(viewModel: CardsViewModelGreen()), CardsView(viewModel: CardsViewModelBlue()), PersonalInformationCard(name: "Hunger", email: "email", phone: "phone", link: "link")]
+    private var stack = [CardsView(viewModel: CardsViewModel(type: CardType.PersonalInfo, elements: ["Hunter Harloff", "hunter@umich.edu", "111-111-1111"], id: 0)), CardsView(viewModel: CardsViewModel(type: CardType.Education, elements: ["University of Michigan", "Class of 2021"], id: 1)), CardsView(viewModel: CardsViewModel(type: CardType.WorkExperience, elements: ["Software Engineer, Facebook", "June 2018 - Aug 2018"], id: 2))]
+    private var stackOfCards = [CardsView]()
+    
     private var focused: Bool = false
     private var originalPosition: CGPoint!
     private var focusedTag: Int!
+    private let socket = Socket()
     
     var maskView = UIView()
 
     private init() {
         super.init(nibName: nil, bundle: nil)
         self.view.backgroundColor = .white
+        socket.delegate = self
+        socket.connect()
     }
     
     public convenience init(withStack stackToUse: [CardsView]) {
@@ -38,47 +45,32 @@ class CardStackViewController: UIViewController {
         UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor : UIColor.white]
 
         self.navigationController?.setNavigationBarHidden(false, animated: false)
-        setupView()
-        setupConstraint()
+
     }
     
     private func setupView() {
-        stack.forEach({
+        stackOfCards.forEach({
             view.addSubview($0)
             $0.delegate = self
         })
     }
     
     private func setupConstraint() {
-        stack[0].translatesAutoresizingMaskIntoConstraints = false
-        stack[0].widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 1, constant: -20).isActive = true
-        stack[0].heightAnchor.constraint(equalToConstant: 200).isActive = true
-        stack[0].topAnchor.constraint(equalTo: view.topAnchor, constant: 80).isActive = true
-        stack[0].centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        stackOfCards[0].translatesAutoresizingMaskIntoConstraints = false
+        stackOfCards[0].widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 1, constant: -20).isActive = true
+        stackOfCards[0].heightAnchor.constraint(equalToConstant: 200).isActive = true
+        stackOfCards[0].topAnchor.constraint(equalTo: view.topAnchor, constant: 120).isActive = true
+        stackOfCards[0].centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        stackOfCards[0].setupSubviewConstraints()
         
-        stack[0].categoryLabel.translatesAutoresizingMaskIntoConstraints = false
-        stack[0].categoryLabel.topAnchor.constraint(equalTo: stack[0].topAnchor, constant: 20).isActive = true
-        stack[0].categoryLabel.leadingAnchor.constraint(equalTo: stack[0].leadingAnchor, constant: 20).isActive = true
-        
-        stack[0].titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        stack[0].titleLabel.topAnchor.constraint(equalTo: stack[0].categoryLabel.bottomAnchor, constant: 10).isActive = true
-        stack[0].titleLabel.leadingAnchor.constraint(equalTo: stack[0].leadingAnchor, constant: 20).isActive = true
+        for i in 1..<stackOfCards.count {
+            stackOfCards[i].translatesAutoresizingMaskIntoConstraints = false
+            stackOfCards[i].widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 1, constant: -20).isActive = true
+            stackOfCards[i].heightAnchor.constraint(equalToConstant: 200).isActive = true
+            stackOfCards[i].topAnchor.constraint(equalTo: stackOfCards[i-1].topAnchor, constant: 40).isActive = true
+            stackOfCards[i].centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+            stackOfCards[i].setupSubviewConstraints()
 
-        
-        for i in 1..<stack.count {
-            stack[i].translatesAutoresizingMaskIntoConstraints = false
-            stack[i].widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 1, constant: -20).isActive = true
-            stack[i].heightAnchor.constraint(equalToConstant: 200).isActive = true
-            stack[i].topAnchor.constraint(equalTo: stack[i-1].topAnchor, constant: 40).isActive = true
-            stack[i].centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-            
-            stack[i].categoryLabel.translatesAutoresizingMaskIntoConstraints = false
-            stack[i].categoryLabel.topAnchor.constraint(equalTo: stack[i].topAnchor, constant: 20).isActive = true
-            stack[i].categoryLabel.leadingAnchor.constraint(equalTo: stack[i].leadingAnchor, constant: 20).isActive = true
-            
-            stack[i].titleLabel.translatesAutoresizingMaskIntoConstraints = false
-            stack[i].titleLabel.topAnchor.constraint(equalTo: stack[i].categoryLabel.bottomAnchor, constant: 10).isActive = true
-            stack[i].titleLabel.leadingAnchor.constraint(equalTo: stack[i].leadingAnchor, constant: 20).isActive = true
         }
     }
     
@@ -130,6 +122,7 @@ extension CardStackViewController: CardsViewDelegate {
         print("Swiped up!!!!!")
         if focused && focusedTag == sender.id {
             view.bringSubview(toFront: sender)
+            socket.sendUpdate(sender: sender)
             UIView.animate(withDuration: 0.4, animations: {
                 sender.center = CGPoint(x: sender.center.x, y: sender.center.y - 1000)
                 self.maskView.alpha = 0
@@ -177,5 +170,56 @@ extension CardStackViewController: CardsViewDelegate {
             })
         }
     }
+    
+    fileprivate func showCards() {
+        print("\n\n\n\n\n\n\n\n\n\n\n\n\nFINAL CARDS\n\n")
+        print(stackOfCards)
+        setupView()
+        setupConstraint()
+    }
+    
+}
+
+extension CardStackViewController: SocketDelegate {
+    func receivedNewCard(data: [Any]) {
+        
+    }
+    
+    func receivedCardStack(data: [Any]) {
+        let json: JSON = JSON(arrayLiteral: data.first)
+        print("\n\n\n\n\n\n\n\n\n\n\n THIS IS JSON")
+//        print(json)
+        if let array: [JSON] = json.array {
+            if let cardArray: JSON = array.first {
+                
+                if let cards = cardArray["card"].array {
+                    for card in cards {
+                        print(card)
+                        print("\n\n\n\n")
+                        let rawType = card["type"].stringValue
+                        let id = card["id"].intValue
+                        
+                        let category = rawType.type()
+                        var strings = [String]()
+                        
+                        if let elements = card["elements"].arrayObject {
+                            for element in elements {
+                                strings.append(element as! String)
+                            }
+                        }
+                        
+                        let newCardViewModel = CardsViewModel(type: category, elements: strings, id: id)
+                        let newCard = CardsView(viewModel: newCardViewModel)
+                        
+                        stackOfCards.append(newCard)
+                    }
+                }
+                
+            }
+        }
+        
+        showCards()
+    }
+    
     
 }
