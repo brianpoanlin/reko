@@ -34,15 +34,12 @@ public class CardsView: UIView {
         addSubview(categoryLabel)
         categoryLabel.text = viewModel.category
         categoryLabel.textColor = .white
-        categoryLabel.font = UIFont.init(name: "Helvetica Neue Light", size: 16)
+        categoryLabel.font = UIFont.init(name: "Helvetica Neue", size: 12)
         
         addSubview(titleLabel)
         titleLabel.text = viewModel.title
         titleLabel.textColor = .white
-        titleLabel.font = UIFont.init(name: "Helvetica Neue Light", size: 16)
-
-        
-
+        titleLabel.font = UIFont.init(name: "Helvetica Neue", size: 18)
     }
     
     private func setupConstraints() {

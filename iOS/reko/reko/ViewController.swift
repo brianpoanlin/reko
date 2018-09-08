@@ -16,16 +16,9 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.isUserInteractionEnabled = true
         // Do any additional setup after loading the view, typically from a nib.
     }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if let touch = touches.first {
-            
-        }
-        
-    }
+
     
     override func viewDidAppear(_ animated: Bool) {
     }
@@ -38,10 +31,10 @@ class ViewController: UIViewController {
     @IBAction func tapped(_ sender: Any) {
 //        present(QRCodeViewController(withContent: "brianpoanlin.com"), animated: true, completion: nil)
         view.addSubview(card)
-        
-//        card.translatesAutoresizingMaskIntoConstraints = false
-//        card.widthAnchor.constraint(equalTo: view.widthAnchor, constant: 20).isActive = true
-        
+        setupCardConstraints()
+    }
+    
+    private func setupCardConstraints() {
         card.translatesAutoresizingMaskIntoConstraints = false
         card.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 1, constant: -20).isActive = true
         card.heightAnchor.constraint(equalToConstant: 200).isActive = true
