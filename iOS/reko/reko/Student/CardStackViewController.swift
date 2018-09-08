@@ -10,7 +10,7 @@ import UIKit
 
 class CardStackViewController: UIViewController {
     
-    private var stack = [CardsView(viewModel: CardsViewModel()), CardsView(viewModel: CardsViewModelBlue()), CardsView(viewModel: CardsViewModel()), CardsView(viewModel: CardsViewModelBlue())]
+    private var stack = [CardsView(viewModel: CardsViewModel()), CardsView(viewModel: CardsViewModelBlue()), CardsView(viewModel: CardsViewModelGreen()), CardsView(viewModel: CardsViewModelBlue())]
     private var focused: Bool = false
     private var originalPosition: CGPoint!
     private var focusedCard: CardsView!
@@ -77,6 +77,16 @@ class CardStackViewController: UIViewController {
             stack[i].titleLabel.leadingAnchor.constraint(equalTo: stack[i].leadingAnchor, constant: 20).isActive = true
         }
     }
+    
+    private func resetCards() {
+        DispatchQueue.main.async {
+            self.stack.forEach({
+                $0.removeFromSuperview()
+            })
+        }
+        
+//        viewDidLoad()
+    }
 
 }
 
@@ -88,7 +98,17 @@ extension CardStackViewController: CardsViewDelegate {
     
     func swipedUp(sender: CardsView) {
         print("Swiped up!!!!!")
-
+        if focused {
+            UIView.animate(withDuration: 0.4, animations: {
+                sender.center = CGPoint(x: sender.center.x, y: sender.center.y - 600)
+                self.maskView.alpha = 0
+            }, completion: { bool in
+                self.maskView.removeFromSuperview()
+                sender.removeFromSuperview()
+            })
+            
+            focused = false
+        }
     }
     
     func tapped(sender: CardsView) {
@@ -111,10 +131,21 @@ extension CardStackViewController: CardsViewDelegate {
             maskView.removeFromSuperview()
             focused = false
             
+
+            
+//            UIView.animate(withDuration: 0.5, animations: {
+//                let translation = sender.center.y - self.originalPosition.y
+//                sender.transform = CGAffineTransform(translationX: 0.0, y: -translation)
+//            })
+            
             UIView.animate(withDuration: 0.5, animations: {
                 let translation = sender.center.y - self.originalPosition.y
                 sender.transform = CGAffineTransform(translationX: 0.0, y: -translation)
-            })
+                }, completion: { bool in
+                    print("Resetted")
+                    self.resetCards()
+                })
+            
         }
     }
     
