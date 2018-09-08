@@ -12,7 +12,7 @@ import SwiftyJSON
 class CardStackViewController: UIViewController {
     
 //    private var stack = [CardsView(viewModel: CardsViewModelGreen()), CardsView(viewModel: CardsViewModelYellow()), CardsView(viewModel: CardsViewModelGreen()), CardsView(viewModel: CardsViewModelBlue()), PersonalInformationCard(name: "Hunger", email: "email", phone: "phone", link: "link")]
-    private var stack = [CardsView(viewModel: CardsViewModel(type: CardType.PersonalInfo, elements: ["Hunter Harloff", "hunter@umich.edu", "111-111-1111"], id: 0)), CardsView(viewModel: CardsViewModel(type: CardType.Education, elements: ["University of Michigan", "Class of 2021"], id: 1)), CardsView(viewModel: CardsViewModel(type: CardType.WorkExperience, elements: ["Software Engineer, Facebook", "June 2018 - Aug 2018"], id: 2))]
+//    private var stack = [CardsView(viewModel: CardsViewModel(type: CardType.PersonalInfo, elements: ["Hunter Harloff", "hunter@umich.edu", "111-111-1111"], id: 0)), CardsView(viewModel: CardsViewModel(type: CardType.Education, elements: ["University of Michigan", "Class of 2021"], id: 1)), CardsView(viewModel: CardsViewModel(type: CardType.WorkExperience, elements: ["Software Engineer, Facebook", "June 2018 - Aug 2018"], id: 2))]
     private var stackOfCards = [CardsView]()
     
     private var focused: Bool = false
@@ -24,17 +24,11 @@ class CardStackViewController: UIViewController {
     
     var maskView = UIView()
 
-    private init() {
+    public init() {
         super.init(nibName: nil, bundle: nil)
         self.view.backgroundColor = .white
         socket.delegate = self
         socket.connect()
-
-    }
-    
-    public convenience init(withStack stackToUse: [CardsView]) {
-        self.init()
-        self.stack = stackToUse
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -188,6 +182,14 @@ extension CardStackViewController: CardsViewDelegate {
 }
 
 extension CardStackViewController: SocketDelegate {
+    func startedSession() {
+        
+    }
+    
+    func endedSession() {
+        
+    }
+    
     func receivedNewCard(data: [Any]) {
         
     }

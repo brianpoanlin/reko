@@ -42,5 +42,34 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
+        <!--Scanner View Controller-->
+        <scene sceneID="6cM-rf-YHw">
+            <objects>
+                <viewController id="y3q-u7-fRW" customClass="QRScannerViewController" customModule="reko" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hB6-GV-aOe">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fih-tN-5np">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="fih-tN-5np" firstAttribute="top" secondItem="hB6-GV-aOe" secondAttribute="top" id="GgV-TQ-ThT"/>
+                            <constraint firstItem="fih-tN-5np" firstAttribute="leading" secondItem="nLj-ef-1lH" secondAttribute="leading" id="gvn-Lb-XS8"/>
+                            <constraint firstItem="fih-tN-5np" firstAttribute="bottom" secondItem="nLj-ef-1lH" secondAttribute="bottom" id="h0e-9A-flw"/>
+                            <constraint firstItem="fih-tN-5np" firstAttribute="trailing" secondItem="nLj-ef-1lH" secondAttribute="trailing" id="qnh-gJ-BZB"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="nLj-ef-1lH"/>
+                    </view>
+                    <connections>
+                        <outlet property="imgView" destination="fih-tN-5np" id="lbX-41-YD2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gLD-rG-aJn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="999.20000000000005" y="130.88455772113943"/>
+        </scene>
     </scenes>
 </document>

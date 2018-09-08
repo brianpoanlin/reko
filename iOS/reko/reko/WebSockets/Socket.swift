@@ -12,6 +12,8 @@ import SwiftyJSON
 public protocol SocketDelegate {
     func receivedNewCard(data: [Any])
     func receivedCardStack(data: [Any])
+    func startedSession()
+    func endedSession()
 }
 
 public class Socket {
@@ -53,7 +55,6 @@ public class Socket {
     public func addEventHandler() {
         client.on("new_card") {[weak self] data, ack in
             print(data)
-            self?.startSession()
             self?.delegate?.receivedNewCard(data: data)
             return
         }
@@ -64,10 +65,25 @@ public class Socket {
             self?.delegate?.receivedCardStack(data: data)
             return
         }
+        
+        client.on("start_session") {[weak self] data, ack in
+            print("HELLLLOOOOO")
+            self?.delegate?.startedSession()
+            return
+        }
+        
+        client.on("end_session") {[weak self] data, ack in
+            self?.delegate?.endedSession()
+            return
+        }
     }
     
     public func startSession() {
-        print("\n\n\n\n Session started!!!! \n\n\n")
+        client.emit("start_session", ["":""])
+    }
+    
+    public func endSession() {
+        client.emit("end_session", ["":""])
     }
     
     public func sendUpdate(sender: CardsView) {

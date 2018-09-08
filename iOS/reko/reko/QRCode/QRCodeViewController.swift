@@ -14,11 +14,14 @@ class QRCodeViewController: UIViewController {
     fileprivate var qrCodeImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 200, height: 200))
     fileprivate var instructionLabel: UILabel = UILabel()
     fileprivate var qrcodeString: String = ""
+    fileprivate var client = Socket()
     
     public init() {
-
         super.init(nibName: nil, bundle: nil)
         self.view.backgroundColor = .white
+        client.delegate = self
+        client.connect()
+        print("listening for session start...")
     }
     
     public convenience init(withContent content: String) {
@@ -64,16 +67,26 @@ class QRCodeViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
 
-    /*
-    // MARK: - Navigation
+}
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+extension QRCodeViewController: SocketDelegate {
+    func receivedNewCard(data: [Any]) {
+        
     }
-    */
-
+    
+    func receivedCardStack(data: [Any]) {
+        
+    }
+    
+    func startedSession() {
+        print("Session Started")
+        navigationController?.pushViewController(CardStackViewController(), animated: true)
+    }
+    
+    func endedSession() {
+        
+    }
+    
+    
 }
