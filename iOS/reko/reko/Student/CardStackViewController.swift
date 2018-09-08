@@ -11,7 +11,12 @@ import UIKit
 class CardStackViewController: UIViewController {
     
     private var stack = [CardsView(viewModel: CardsViewModel()), CardsView(viewModel: CardsViewModelBlue()), CardsView(viewModel: CardsViewModel()), CardsView(viewModel: CardsViewModelBlue())]
+    private var focused: Bool = false
+    private var originalPosition: CGPoint!
+    private var focusedCard: CardsView!
     
+    var maskView = UIView()
+
     private init() {
         super.init(nibName: nil, bundle: nil)
         self.view.backgroundColor = .white
@@ -19,7 +24,6 @@ class CardStackViewController: UIViewController {
     
     public convenience init(withStack stackToUse: [CardsView]) {
         self.init()
-        print(stackToUse)
         self.stack = stackToUse
     }
     
@@ -35,7 +39,10 @@ class CardStackViewController: UIViewController {
     }
     
     private func setupView() {
-        stack.forEach({ view.addSubview($0) })
+        stack.forEach({
+            view.addSubview($0)
+            $0.delegate = self
+        })
     }
     
     private func setupConstraint() {
@@ -71,4 +78,44 @@ class CardStackViewController: UIViewController {
         }
     }
 
+}
+
+extension CardStackViewController: CardsViewDelegate {
+    func swipedDown(sender: CardsView) {
+        print("Dismiss")
+
+    }
+    
+    func swipedUp(sender: CardsView) {
+        print("Swiped up!!!!!")
+
+    }
+    
+    func tapped(sender: CardsView) {
+        if !focused {
+            focused = true
+            maskView = UIView(frame: self.view.frame)
+            maskView.backgroundColor = .black
+            
+            view.addSubview(maskView)
+            view.bringSubview(toFront: sender)
+           
+            originalPosition = sender.center
+            
+            UIView.animate(withDuration: 0.5, animations: {
+                self.maskView.alpha = 0.5
+                let translation = self.view.frame.height / 2 - sender.center.y
+                sender.transform = CGAffineTransform(translationX: 0.0, y: translation)
+            })
+        } else {
+            maskView.removeFromSuperview()
+            focused = false
+            
+            UIView.animate(withDuration: 0.5, animations: {
+                let translation = sender.center.y - self.originalPosition.y
+                sender.transform = CGAffineTransform(translationX: 0.0, y: -translation)
+            })
+        }
+    }
+    
 }
