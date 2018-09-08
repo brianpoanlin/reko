@@ -27,7 +27,7 @@ class ViewController: UIViewController {
     }
 
     @IBAction func tapped(_ sender: Any) {
-        present(QRCodeViewController(withContent: "lol"), animated: true, completion: nil)
+        present(QRCodeViewController(withContent: "brianpoanlin.com"), animated: true, completion: nil)
 
     }
     

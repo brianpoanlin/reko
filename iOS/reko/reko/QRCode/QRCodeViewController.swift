@@ -13,8 +13,10 @@ class QRCodeViewController: UIViewController {
 
     fileprivate var qrCodeImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 200, height: 200))
     fileprivate var instructionLabel: UILabel = UILabel()
+    fileprivate var qrcodeString: String = ""
     
     public init() {
+
         super.init(nibName: nil, bundle: nil)
         self.view.backgroundColor = .white
     }
@@ -22,6 +24,8 @@ class QRCodeViewController: UIViewController {
     public convenience init(withContent content: String) {
         self.init()
         instructionLabel.text = content
+        self.qrcodeString = content
+        qrCodeImageView.image = RekoCodeGenerator.generatedQRCode(withCode: qrcodeString, size: qrCodeImageView.frame.size)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -36,7 +40,8 @@ class QRCodeViewController: UIViewController {
     }
     
     private func setUpViews() {
-        qrCodeImageView.image = RekoCodeGenerator.generatedQRCode(withCode: "brianlin.com", size: qrCodeImageView.frame.size)
+        instructionLabel.textAlignment = .center
+        
         view.addSubview(qrCodeImageView)
         view.addSubview(instructionLabel)
     }
@@ -53,7 +58,6 @@ class QRCodeViewController: UIViewController {
         instructionLabel.leadingAnchor.constraint(equalTo: margins.leadingAnchor, constant: 20).isActive = true
         instructionLabel.leadingAnchor.constraint(equalTo: margins.trailingAnchor, constant: 20).isActive = true
         instructionLabel.topAnchor.constraint(equalTo: margins.topAnchor, constant: 20).isActive = true
-        instructionLabel.heightAnchor.constraint(equalToConstant: 50)
     }
 
     override func didReceiveMemoryWarning() {
