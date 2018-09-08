@@ -75,7 +75,7 @@ public class Socket {
     }
     
     public func sendImpression(type: CardType, impression: Bool) {
-        client.emit("register_impression", ["type" : type.rawValue, "impressed" : impression])
+        client.emit("register_impression", ["type" : type.abbreviation, "impressed" : impression])
     }
     
     public func receivedUpdate() {
