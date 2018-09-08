@@ -144,11 +144,17 @@ strip_invalid_archs() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/BlocksKit/BlocksKit.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/Emitter/Emitter.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/QRCodeGenerator/QRCodeGenerator.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/SocketIO/SocketIO.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/BlocksKit/BlocksKit.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/Emitter/Emitter.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/QRCodeGenerator/QRCodeGenerator.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/SocketIO/SocketIO.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then
   wait

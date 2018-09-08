@@ -8,6 +8,7 @@ target 'reko' do
   # Pods for reko
   pod 'Alamofire'
   pod 'QRCodeGenerator'
+  pod 'SocketIO'
 
   target 'rekoTests' do
     inherit! :search_paths
