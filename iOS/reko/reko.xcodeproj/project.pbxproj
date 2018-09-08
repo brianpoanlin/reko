@@ -8,12 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		8D965BA34A1BEEF768A25082 /* Pods_rekoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6B600CAA062C1F76F7037DA /* Pods_rekoTests.framework */; };
+		AF36312A21438D06005337F7 /* StudentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF36312921438D06005337F7 /* StudentViewController.swift */; };
+		AF36312C21438DCB005337F7 /* CardStackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF36312B21438DCB005337F7 /* CardStackViewController.swift */; };
 		AF4F942E2143683A00E744FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4F942D2143683A00E744FE /* AppDelegate.swift */; };
 		AF4F94302143683A00E744FE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4F942F2143683A00E744FE /* ViewController.swift */; };
 		AF4F94332143683A00E744FE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF4F94312143683A00E744FE /* Main.storyboard */; };
 		AF4F94352143683B00E744FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF4F94342143683B00E744FE /* Assets.xcassets */; };
 		AF4F94382143683B00E744FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF4F94362143683B00E744FE /* LaunchScreen.storyboard */; };
 		AF4F94432143683B00E744FE /* rekoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4F94422143683B00E744FE /* rekoTests.swift */; };
+		AF6A44BF21437E1600106C33 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6A44BE21437E1600106C33 /* CardView.swift */; };
+		AF6A44C121437E3500106C33 /* CardsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6A44C021437E3500106C33 /* CardsViewModel.swift */; };
+		AF6A44C421437F3200106C33 /* reko+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6A44C321437F3200106C33 /* reko+UIColor.swift */; };
 		AFBAD1C8214369BA00F65C16 /* RekoCodeGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFBAD1C7214369BA00F65C16 /* RekoCodeGenerator.swift */; };
 		AFBAD1CA21436DE400F65C16 /* QRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFBAD1C921436DE400F65C16 /* QRCodeViewController.swift */; };
 		EDC07E366F83829CEE01D579 /* Pods_reko.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F02F4D45E7A3C261D8DA830 /* Pods_reko.framework */; };
@@ -33,6 +38,8 @@
 		3104F97C01F82ADCDF170BC5 /* Pods-reko.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-reko.debug.xcconfig"; path = "Pods/Target Support Files/Pods-reko/Pods-reko.debug.xcconfig"; sourceTree = "<group>"; };
 		40C0093B2CFE810D422DC466 /* Pods-rekoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rekoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-rekoTests/Pods-rekoTests.release.xcconfig"; sourceTree = "<group>"; };
 		8F02F4D45E7A3C261D8DA830 /* Pods_reko.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_reko.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AF36312921438D06005337F7 /* StudentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentViewController.swift; sourceTree = "<group>"; };
+		AF36312B21438DCB005337F7 /* CardStackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardStackViewController.swift; sourceTree = "<group>"; };
 		AF4F942A2143683A00E744FE /* reko.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = reko.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF4F942D2143683A00E744FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AF4F942F2143683A00E744FE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -43,6 +50,9 @@
 		AF4F943E2143683B00E744FE /* rekoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = rekoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF4F94422143683B00E744FE /* rekoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rekoTests.swift; sourceTree = "<group>"; };
 		AF4F94442143683B00E744FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AF6A44BE21437E1600106C33 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		AF6A44C021437E3500106C33 /* CardsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsViewModel.swift; sourceTree = "<group>"; };
+		AF6A44C321437F3200106C33 /* reko+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "reko+UIColor.swift"; sourceTree = "<group>"; };
 		AFBAD1C7214369BA00F65C16 /* RekoCodeGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RekoCodeGenerator.swift; sourceTree = "<group>"; };
 		AFBAD1C921436DE400F65C16 /* QRCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeViewController.swift; sourceTree = "<group>"; };
 		C5BBEDFF203F19D44824CACD /* Pods-rekoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rekoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-rekoTests/Pods-rekoTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -79,6 +89,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		AF36312821438CDE005337F7 /* Student */ = {
+			isa = PBXGroup;
+			children = (
+				AF36312921438D06005337F7 /* StudentViewController.swift */,
+				AF36312B21438DCB005337F7 /* CardStackViewController.swift */,
+			);
+			path = Student;
+			sourceTree = "<group>";
+		};
 		AF4F94212143683A00E744FE = {
 			isa = PBXGroup;
 			children = (
@@ -104,6 +123,9 @@
 			children = (
 				AF4F942D2143683A00E744FE /* AppDelegate.swift */,
 				AF4F942F2143683A00E744FE /* ViewController.swift */,
+				AF36312821438CDE005337F7 /* Student */,
+				AF6A44C221437F2200106C33 /* Colors */,
+				AF6A44BD21437E0100106C33 /* Cards */,
 				AFBAD1C62143699F00F65C16 /* QRCode */,
 				AF4F94312143683A00E744FE /* Main.storyboard */,
 				AF4F94342143683B00E744FE /* Assets.xcassets */,
@@ -120,6 +142,23 @@
 				AF4F94442143683B00E744FE /* Info.plist */,
 			);
 			path = rekoTests;
+			sourceTree = "<group>";
+		};
+		AF6A44BD21437E0100106C33 /* Cards */ = {
+			isa = PBXGroup;
+			children = (
+				AF6A44BE21437E1600106C33 /* CardView.swift */,
+				AF6A44C021437E3500106C33 /* CardsViewModel.swift */,
+			);
+			path = Cards;
+			sourceTree = "<group>";
+		};
+		AF6A44C221437F2200106C33 /* Colors */ = {
+			isa = PBXGroup;
+			children = (
+				AF6A44C321437F3200106C33 /* reko+UIColor.swift */,
+			);
+			path = Colors;
 			sourceTree = "<group>";
 		};
 		AFBAD1C62143699F00F65C16 /* QRCode */ = {
@@ -307,8 +346,13 @@
 			files = (
 				AF4F94302143683A00E744FE /* ViewController.swift in Sources */,
 				AF4F942E2143683A00E744FE /* AppDelegate.swift in Sources */,
+				AF6A44C121437E3500106C33 /* CardsViewModel.swift in Sources */,
 				AFBAD1CA21436DE400F65C16 /* QRCodeViewController.swift in Sources */,
+				AF36312A21438D06005337F7 /* StudentViewController.swift in Sources */,
 				AFBAD1C8214369BA00F65C16 /* RekoCodeGenerator.swift in Sources */,
+				AF6A44C421437F3200106C33 /* reko+UIColor.swift in Sources */,
+				AF36312C21438DCB005337F7 /* CardStackViewController.swift in Sources */,
+				AF6A44BF21437E1600106C33 /* CardView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
