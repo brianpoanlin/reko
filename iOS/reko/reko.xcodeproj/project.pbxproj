@@ -26,6 +26,7 @@
 		AF799D18214461CF000280F1 /* checkmark.png in Resources */ = {isa = PBXBuildFile; fileRef = AF799D16214461CE000280F1 /* checkmark.png */; };
 		AF799D19214461CF000280F1 /* x.png in Resources */ = {isa = PBXBuildFile; fileRef = AF799D17214461CF000280F1 /* x.png */; };
 		AF799D1B214463FA000280F1 /* NoButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF799D1A214463FA000280F1 /* NoButton.swift */; };
+		AF799D2121446A4E000280F1 /* QRScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF799D2021446A4E000280F1 /* QRScannerViewController.swift */; };
 		AF9F57CE21445464000CEA50 /* WaitingAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF9F57CD21445464000CEA50 /* WaitingAnimation.swift */; };
 		AFBAD1C8214369BA00F65C16 /* RekoCodeGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFBAD1C7214369BA00F65C16 /* RekoCodeGenerator.swift */; };
 		AFBAD1CA21436DE400F65C16 /* QRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFBAD1C921436DE400F65C16 /* QRCodeViewController.swift */; };
@@ -68,6 +69,7 @@
 		AF799D16214461CE000280F1 /* checkmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkmark.png; sourceTree = "<group>"; };
 		AF799D17214461CF000280F1 /* x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = x.png; sourceTree = "<group>"; };
 		AF799D1A214463FA000280F1 /* NoButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoButton.swift; sourceTree = "<group>"; };
+		AF799D2021446A4E000280F1 /* QRScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScannerViewController.swift; sourceTree = "<group>"; };
 		AF9F57CD21445464000CEA50 /* WaitingAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingAnimation.swift; sourceTree = "<group>"; };
 		AFBAD1C7214369BA00F65C16 /* RekoCodeGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RekoCodeGenerator.swift; sourceTree = "<group>"; };
 		AFBAD1C921436DE400F65C16 /* QRCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeViewController.swift; sourceTree = "<group>"; };
@@ -206,6 +208,7 @@
 			children = (
 				AFBAD1C7214369BA00F65C16 /* RekoCodeGenerator.swift */,
 				AFBAD1C921436DE400F65C16 /* QRCodeViewController.swift */,
+				AF799D2021446A4E000280F1 /* QRScannerViewController.swift */,
 			);
 			path = QRCode;
 			sourceTree = "<group>";
@@ -396,6 +399,7 @@
 				AF1ADA4E21440ECA005AE5AC /* RecruiterViewController.swift in Sources */,
 				AF4F942E2143683A00E744FE /* AppDelegate.swift in Sources */,
 				AF6A44C121437E3500106C33 /* CardsViewModel.swift in Sources */,
+				AF799D2121446A4E000280F1 /* QRScannerViewController.swift in Sources */,
 				AF9F57CE21445464000CEA50 /* WaitingAnimation.swift in Sources */,
 				AFBAD1CA21436DE400F65C16 /* QRCodeViewController.swift in Sources */,
 				AF36312A21438D06005337F7 /* StudentViewController.swift in Sources */,
