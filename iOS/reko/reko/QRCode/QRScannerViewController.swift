@@ -25,6 +25,7 @@ class QRScannerViewController: UIViewController {
         view.backgroundColor = .white
         imgView = UIImageView(frame: self.view.frame)
         view.addSubview(imgView)
+        client.connect()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -91,7 +92,7 @@ class QRScannerViewController: UIViewController {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: {
             let navigationController = UINavigationController(rootViewController: RecruiterViewController())
             self.present(navigationController, animated: true, completion: nil)
-            
+            self.client.startSession()
         })
     }
 }

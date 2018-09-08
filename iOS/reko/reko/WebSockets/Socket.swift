@@ -67,6 +67,7 @@ public class Socket {
         }
         
         client.on("start_session") {[weak self] data, ack in
+            print("HELLLLOOOOO")
             self?.delegate?.startedSession()
             return
         }
@@ -78,11 +79,11 @@ public class Socket {
     }
     
     public func startSession() {
-        client.emit("start_session", [])
+        client.emit("start_session", ["":""])
     }
     
     public func endSession() {
-        client.emit("end_session", [])
+        client.emit("end_session", ["":""])
     }
     
     public func sendUpdate(sender: CardsView) {

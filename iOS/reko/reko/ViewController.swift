@@ -16,7 +16,6 @@ class ViewController: UIViewController {
     private var panGesture = UIPanGestureRecognizer()
     private var swipeGesture = UISwipeGestureRecognizer()
     private let socket = Socket()
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
