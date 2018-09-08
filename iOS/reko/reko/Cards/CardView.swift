@@ -43,7 +43,7 @@ public class CardsView: UIView {
         swipeUpRecognizer.direction = .up
         self.addGestureRecognizer(swipeUpRecognizer)
         
-        let swipeDownRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(swipedUp))
+        let swipeDownRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(swipedDown))
         swipeDownRecognizer.direction = .down
         self.addGestureRecognizer(swipeDownRecognizer)
         

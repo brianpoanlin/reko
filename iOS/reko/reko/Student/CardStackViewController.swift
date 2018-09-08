@@ -93,7 +93,23 @@ class CardStackViewController: UIViewController {
 extension CardStackViewController: CardsViewDelegate {
     func swipedDown(sender: CardsView) {
         print("Dismiss")
-
+        if focused {
+            maskView.removeFromSuperview()
+            focused = false
+            
+            UIView.animate(withDuration: 0.2, animations: {
+                sender.transform = CGAffineTransform(translationX: 0.0, y: 200.0)
+            }, completion: { bool in
+            
+                UIView.animate(withDuration: 0.5, animations: {
+                    let translation = sender.center.y - self.originalPosition.y
+                    sender.transform = CGAffineTransform(translationX: 0.0, y: -translation)
+                }, completion: { bool in
+                    print("Resetted")
+                    self.resetCards()
+                })
+            })
+        }
     }
     
     func swipedUp(sender: CardsView) {
@@ -119,33 +135,17 @@ extension CardStackViewController: CardsViewDelegate {
             
             view.addSubview(maskView)
             view.bringSubview(toFront: sender)
-           
+            self.maskView.alpha = 0.5
+
             originalPosition = sender.center
             
-            UIView.animate(withDuration: 0.5, animations: {
-                self.maskView.alpha = 0.5
+
+            UIView.animate(withDuration: 0.4, animations: {
                 let translation = self.view.frame.height / 2 - sender.center.y
                 sender.transform = CGAffineTransform(translationX: 0.0, y: translation)
             })
-        } else {
-            maskView.removeFromSuperview()
-            focused = false
             
 
-            
-//            UIView.animate(withDuration: 0.5, animations: {
-//                let translation = sender.center.y - self.originalPosition.y
-//                sender.transform = CGAffineTransform(translationX: 0.0, y: -translation)
-//            })
-            
-            UIView.animate(withDuration: 0.5, animations: {
-                let translation = sender.center.y - self.originalPosition.y
-                sender.transform = CGAffineTransform(translationX: 0.0, y: -translation)
-                }, completion: { bool in
-                    print("Resetted")
-                    self.resetCards()
-                })
-            
         }
     }
     
