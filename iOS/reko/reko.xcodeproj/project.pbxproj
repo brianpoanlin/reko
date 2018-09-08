@@ -7,105 +7,150 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AFDABDC8214353DD00F1BA28 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFDABDC7214353DD00F1BA28 /* AppDelegate.swift */; };
-		AFDABDCA214353DD00F1BA28 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFDABDC9214353DD00F1BA28 /* ViewController.swift */; };
-		AFDABDCD214353DD00F1BA28 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFDABDCB214353DD00F1BA28 /* Main.storyboard */; };
-		AFDABDCF214353DF00F1BA28 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFDABDCE214353DF00F1BA28 /* Assets.xcassets */; };
-		AFDABDD2214353DF00F1BA28 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFDABDD0214353DF00F1BA28 /* LaunchScreen.storyboard */; };
-		AFDABDDD214353DF00F1BA28 /* rekoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFDABDDC214353DF00F1BA28 /* rekoTests.swift */; };
+		8D965BA34A1BEEF768A25082 /* Pods_rekoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6B600CAA062C1F76F7037DA /* Pods_rekoTests.framework */; };
+		AF4F942E2143683A00E744FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4F942D2143683A00E744FE /* AppDelegate.swift */; };
+		AF4F94302143683A00E744FE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4F942F2143683A00E744FE /* ViewController.swift */; };
+		AF4F94332143683A00E744FE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF4F94312143683A00E744FE /* Main.storyboard */; };
+		AF4F94352143683B00E744FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF4F94342143683B00E744FE /* Assets.xcassets */; };
+		AF4F94382143683B00E744FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF4F94362143683B00E744FE /* LaunchScreen.storyboard */; };
+		AF4F94432143683B00E744FE /* rekoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4F94422143683B00E744FE /* rekoTests.swift */; };
+		AFBAD1C8214369BA00F65C16 /* RekoCodeGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFBAD1C7214369BA00F65C16 /* RekoCodeGenerator.swift */; };
+		EDC07E366F83829CEE01D579 /* Pods_reko.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F02F4D45E7A3C261D8DA830 /* Pods_reko.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		AFDABDD9214353DF00F1BA28 /* PBXContainerItemProxy */ = {
+		AF4F943F2143683B00E744FE /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = AFDABDBC214353DD00F1BA28 /* Project object */;
+			containerPortal = AF4F94222143683A00E744FE /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = AFDABDC3214353DD00F1BA28;
+			remoteGlobalIDString = AF4F94292143683A00E744FE;
 			remoteInfo = reko;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		AFDABDC4214353DD00F1BA28 /* reko.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = reko.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		AFDABDC7214353DD00F1BA28 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		AFDABDC9214353DD00F1BA28 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		AFDABDCC214353DD00F1BA28 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		AFDABDCE214353DF00F1BA28 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		AFDABDD1214353DF00F1BA28 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		AFDABDD3214353DF00F1BA28 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AFDABDD8214353DF00F1BA28 /* rekoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = rekoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		AFDABDDC214353DF00F1BA28 /* rekoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rekoTests.swift; sourceTree = "<group>"; };
-		AFDABDDE214353DF00F1BA28 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3104F97C01F82ADCDF170BC5 /* Pods-reko.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-reko.debug.xcconfig"; path = "Pods/Target Support Files/Pods-reko/Pods-reko.debug.xcconfig"; sourceTree = "<group>"; };
+		40C0093B2CFE810D422DC466 /* Pods-rekoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rekoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-rekoTests/Pods-rekoTests.release.xcconfig"; sourceTree = "<group>"; };
+		8F02F4D45E7A3C261D8DA830 /* Pods_reko.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_reko.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AF4F942A2143683A00E744FE /* reko.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = reko.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AF4F942D2143683A00E744FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		AF4F942F2143683A00E744FE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		AF4F94322143683A00E744FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		AF4F94342143683B00E744FE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AF4F94372143683B00E744FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		AF4F94392143683B00E744FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AF4F943E2143683B00E744FE /* rekoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = rekoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AF4F94422143683B00E744FE /* rekoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rekoTests.swift; sourceTree = "<group>"; };
+		AF4F94442143683B00E744FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AFBAD1C7214369BA00F65C16 /* RekoCodeGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RekoCodeGenerator.swift; sourceTree = "<group>"; };
+		C5BBEDFF203F19D44824CACD /* Pods-rekoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rekoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-rekoTests/Pods-rekoTests.debug.xcconfig"; sourceTree = "<group>"; };
+		D6B600CAA062C1F76F7037DA /* Pods_rekoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_rekoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ED4776D25B714030AF6884CF /* Pods-reko.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-reko.release.xcconfig"; path = "Pods/Target Support Files/Pods-reko/Pods-reko.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		AFDABDC1214353DD00F1BA28 /* Frameworks */ = {
+		AF4F94272143683A00E744FE /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EDC07E366F83829CEE01D579 /* Pods_reko.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		AFDABDD5214353DF00F1BA28 /* Frameworks */ = {
+		AF4F943B2143683B00E744FE /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D965BA34A1BEEF768A25082 /* Pods_rekoTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		AFDABDBB214353DD00F1BA28 = {
+		3D34D49B2382D27ED28EFA03 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				AFDABDC6214353DD00F1BA28 /* reko */,
-				AFDABDDB214353DF00F1BA28 /* rekoTests */,
-				AFDABDC5214353DD00F1BA28 /* Products */,
+				8F02F4D45E7A3C261D8DA830 /* Pods_reko.framework */,
+				D6B600CAA062C1F76F7037DA /* Pods_rekoTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AF4F94212143683A00E744FE = {
+			isa = PBXGroup;
+			children = (
+				AF4F942C2143683A00E744FE /* reko */,
+				AF4F94412143683B00E744FE /* rekoTests */,
+				AF4F942B2143683A00E744FE /* Products */,
+				B63798181FA62CD397FDA10A /* Pods */,
+				3D34D49B2382D27ED28EFA03 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
-		AFDABDC5214353DD00F1BA28 /* Products */ = {
+		AF4F942B2143683A00E744FE /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				AFDABDC4214353DD00F1BA28 /* reko.app */,
-				AFDABDD8214353DF00F1BA28 /* rekoTests.xctest */,
+				AF4F942A2143683A00E744FE /* reko.app */,
+				AF4F943E2143683B00E744FE /* rekoTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		AFDABDC6214353DD00F1BA28 /* reko */ = {
+		AF4F942C2143683A00E744FE /* reko */ = {
 			isa = PBXGroup;
 			children = (
-				AFDABDC7214353DD00F1BA28 /* AppDelegate.swift */,
-				AFDABDC9214353DD00F1BA28 /* ViewController.swift */,
-				AFDABDCB214353DD00F1BA28 /* Main.storyboard */,
-				AFDABDCE214353DF00F1BA28 /* Assets.xcassets */,
-				AFDABDD0214353DF00F1BA28 /* LaunchScreen.storyboard */,
-				AFDABDD3214353DF00F1BA28 /* Info.plist */,
+				AF4F942D2143683A00E744FE /* AppDelegate.swift */,
+				AF4F942F2143683A00E744FE /* ViewController.swift */,
+				AFBAD1C62143699F00F65C16 /* QRCode */,
+				AF4F94312143683A00E744FE /* Main.storyboard */,
+				AF4F94342143683B00E744FE /* Assets.xcassets */,
+				AF4F94362143683B00E744FE /* LaunchScreen.storyboard */,
+				AF4F94392143683B00E744FE /* Info.plist */,
 			);
 			path = reko;
 			sourceTree = "<group>";
 		};
-		AFDABDDB214353DF00F1BA28 /* rekoTests */ = {
+		AF4F94412143683B00E744FE /* rekoTests */ = {
 			isa = PBXGroup;
 			children = (
-				AFDABDDC214353DF00F1BA28 /* rekoTests.swift */,
-				AFDABDDE214353DF00F1BA28 /* Info.plist */,
+				AF4F94422143683B00E744FE /* rekoTests.swift */,
+				AF4F94442143683B00E744FE /* Info.plist */,
 			);
 			path = rekoTests;
+			sourceTree = "<group>";
+		};
+		AFBAD1C62143699F00F65C16 /* QRCode */ = {
+			isa = PBXGroup;
+			children = (
+				AFBAD1C7214369BA00F65C16 /* RekoCodeGenerator.swift */,
+			);
+			path = QRCode;
+			sourceTree = "<group>";
+		};
+		B63798181FA62CD397FDA10A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3104F97C01F82ADCDF170BC5 /* Pods-reko.debug.xcconfig */,
+				ED4776D25B714030AF6884CF /* Pods-reko.release.xcconfig */,
+				C5BBEDFF203F19D44824CACD /* Pods-rekoTests.debug.xcconfig */,
+				40C0093B2CFE810D422DC466 /* Pods-rekoTests.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		AFDABDC3214353DD00F1BA28 /* reko */ = {
+		AF4F94292143683A00E744FE /* reko */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AFDABDE1214353DF00F1BA28 /* Build configuration list for PBXNativeTarget "reko" */;
+			buildConfigurationList = AF4F94472143683B00E744FE /* Build configuration list for PBXNativeTarget "reko" */;
 			buildPhases = (
-				AFDABDC0214353DD00F1BA28 /* Sources */,
-				AFDABDC1214353DD00F1BA28 /* Frameworks */,
-				AFDABDC2214353DD00F1BA28 /* Resources */,
+				0125585A77B9BD2F90E2C524 /* [CP] Check Pods Manifest.lock */,
+				AF4F94262143683A00E744FE /* Sources */,
+				AF4F94272143683A00E744FE /* Frameworks */,
+				AF4F94282143683A00E744FE /* Resources */,
+				7CD713B606DEC777A8A86371 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -113,47 +158,48 @@
 			);
 			name = reko;
 			productName = reko;
-			productReference = AFDABDC4214353DD00F1BA28 /* reko.app */;
+			productReference = AF4F942A2143683A00E744FE /* reko.app */;
 			productType = "com.apple.product-type.application";
 		};
-		AFDABDD7214353DF00F1BA28 /* rekoTests */ = {
+		AF4F943D2143683B00E744FE /* rekoTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AFDABDE4214353DF00F1BA28 /* Build configuration list for PBXNativeTarget "rekoTests" */;
+			buildConfigurationList = AF4F944A2143683B00E744FE /* Build configuration list for PBXNativeTarget "rekoTests" */;
 			buildPhases = (
-				AFDABDD4214353DF00F1BA28 /* Sources */,
-				AFDABDD5214353DF00F1BA28 /* Frameworks */,
-				AFDABDD6214353DF00F1BA28 /* Resources */,
+				06B3EEE89EFA5B6E8BBF31F9 /* [CP] Check Pods Manifest.lock */,
+				AF4F943A2143683B00E744FE /* Sources */,
+				AF4F943B2143683B00E744FE /* Frameworks */,
+				AF4F943C2143683B00E744FE /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				AFDABDDA214353DF00F1BA28 /* PBXTargetDependency */,
+				AF4F94402143683B00E744FE /* PBXTargetDependency */,
 			);
 			name = rekoTests;
 			productName = rekoTests;
-			productReference = AFDABDD8214353DF00F1BA28 /* rekoTests.xctest */;
+			productReference = AF4F943E2143683B00E744FE /* rekoTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		AFDABDBC214353DD00F1BA28 /* Project object */ = {
+		AF4F94222143683A00E744FE /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1000;
-				LastUpgradeCheck = 1000;
+				LastSwiftUpdateCheck = 0940;
+				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = "Brian Lin";
 				TargetAttributes = {
-					AFDABDC3214353DD00F1BA28 = {
-						CreatedOnToolsVersion = 10.0;
+					AF4F94292143683A00E744FE = {
+						CreatedOnToolsVersion = 9.4.1;
 					};
-					AFDABDD7214353DF00F1BA28 = {
-						CreatedOnToolsVersion = 10.0;
-						TestTargetID = AFDABDC3214353DD00F1BA28;
+					AF4F943D2143683B00E744FE = {
+						CreatedOnToolsVersion = 9.4.1;
+						TestTargetID = AF4F94292143683A00E744FE;
 					};
 				};
 			};
-			buildConfigurationList = AFDABDBF214353DD00F1BA28 /* Build configuration list for PBXProject "reko" */;
+			buildConfigurationList = AF4F94252143683A00E744FE /* Build configuration list for PBXProject "reko" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -161,29 +207,29 @@
 				en,
 				Base,
 			);
-			mainGroup = AFDABDBB214353DD00F1BA28;
-			productRefGroup = AFDABDC5214353DD00F1BA28 /* Products */;
+			mainGroup = AF4F94212143683A00E744FE;
+			productRefGroup = AF4F942B2143683A00E744FE /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				AFDABDC3214353DD00F1BA28 /* reko */,
-				AFDABDD7214353DF00F1BA28 /* rekoTests */,
+				AF4F94292143683A00E744FE /* reko */,
+				AF4F943D2143683B00E744FE /* rekoTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		AFDABDC2214353DD00F1BA28 /* Resources */ = {
+		AF4F94282143683A00E744FE /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AFDABDD2214353DF00F1BA28 /* LaunchScreen.storyboard in Resources */,
-				AFDABDCF214353DF00F1BA28 /* Assets.xcassets in Resources */,
-				AFDABDCD214353DD00F1BA28 /* Main.storyboard in Resources */,
+				AF4F94382143683B00E744FE /* LaunchScreen.storyboard in Resources */,
+				AF4F94352143683B00E744FE /* Assets.xcassets in Resources */,
+				AF4F94332143683A00E744FE /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		AFDABDD6214353DF00F1BA28 /* Resources */ = {
+		AF4F943C2143683B00E744FE /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -192,47 +238,107 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0125585A77B9BD2F90E2C524 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-reko-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		06B3EEE89EFA5B6E8BBF31F9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-rekoTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7CD713B606DEC777A8A86371 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-reko/Pods-reko-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/QRCodeGenerator/QRCodeGenerator.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/QRCodeGenerator.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-reko/Pods-reko-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
-		AFDABDC0214353DD00F1BA28 /* Sources */ = {
+		AF4F94262143683A00E744FE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AFDABDCA214353DD00F1BA28 /* ViewController.swift in Sources */,
-				AFDABDC8214353DD00F1BA28 /* AppDelegate.swift in Sources */,
+				AF4F94302143683A00E744FE /* ViewController.swift in Sources */,
+				AF4F942E2143683A00E744FE /* AppDelegate.swift in Sources */,
+				AFBAD1C8214369BA00F65C16 /* RekoCodeGenerator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		AFDABDD4214353DF00F1BA28 /* Sources */ = {
+		AF4F943A2143683B00E744FE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AFDABDDD214353DF00F1BA28 /* rekoTests.swift in Sources */,
+				AF4F94432143683B00E744FE /* rekoTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		AFDABDDA214353DF00F1BA28 /* PBXTargetDependency */ = {
+		AF4F94402143683B00E744FE /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = AFDABDC3214353DD00F1BA28 /* reko */;
-			targetProxy = AFDABDD9214353DF00F1BA28 /* PBXContainerItemProxy */;
+			target = AF4F94292143683A00E744FE /* reko */;
+			targetProxy = AF4F943F2143683B00E744FE /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		AFDABDCB214353DD00F1BA28 /* Main.storyboard */ = {
+		AF4F94312143683A00E744FE /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				AFDABDCC214353DD00F1BA28 /* Base */,
+				AF4F94322143683A00E744FE /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		AFDABDD0214353DF00F1BA28 /* LaunchScreen.storyboard */ = {
+		AF4F94362143683B00E744FE /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				AFDABDD1214353DF00F1BA28 /* Base */,
+				AF4F94372143683B00E744FE /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -240,7 +346,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		AFDABDDF214353DF00F1BA28 /* Debug */ = {
+		AF4F94452143683B00E744FE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -291,9 +397,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
-				MTL_FAST_MATH = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
@@ -301,7 +406,7 @@
 			};
 			name = Debug;
 		};
-		AFDABDE0214353DF00F1BA28 /* Release */ = {
+		AF4F94462143683B00E744FE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -346,9 +451,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
@@ -356,8 +460,9 @@
 			};
 			name = Release;
 		};
-		AFDABDE2214353DF00F1BA28 /* Debug */ = {
+		AF4F94482143683B00E744FE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3104F97C01F82ADCDF170BC5 /* Pods-reko.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -369,13 +474,14 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.brianlin.reko;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		AFDABDE3214353DF00F1BA28 /* Release */ = {
+		AF4F94492143683B00E744FE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ED4776D25B714030AF6884CF /* Pods-reko.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -387,13 +493,14 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.brianlin.reko;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
-		AFDABDE5214353DF00F1BA28 /* Debug */ = {
+		AF4F944B2143683B00E744FE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C5BBEDFF203F19D44824CACD /* Pods-rekoTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -407,14 +514,15 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.brianlin.rekoTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/reko.app/reko";
 			};
 			name = Debug;
 		};
-		AFDABDE6214353DF00F1BA28 /* Release */ = {
+		AF4F944C2143683B00E744FE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 40C0093B2CFE810D422DC466 /* Pods-rekoTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -428,7 +536,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.brianlin.rekoTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/reko.app/reko";
 			};
@@ -437,34 +545,34 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		AFDABDBF214353DD00F1BA28 /* Build configuration list for PBXProject "reko" */ = {
+		AF4F94252143683A00E744FE /* Build configuration list for PBXProject "reko" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				AFDABDDF214353DF00F1BA28 /* Debug */,
-				AFDABDE0214353DF00F1BA28 /* Release */,
+				AF4F94452143683B00E744FE /* Debug */,
+				AF4F94462143683B00E744FE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AFDABDE1214353DF00F1BA28 /* Build configuration list for PBXNativeTarget "reko" */ = {
+		AF4F94472143683B00E744FE /* Build configuration list for PBXNativeTarget "reko" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				AFDABDE2214353DF00F1BA28 /* Debug */,
-				AFDABDE3214353DF00F1BA28 /* Release */,
+				AF4F94482143683B00E744FE /* Debug */,
+				AF4F94492143683B00E744FE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AFDABDE4214353DF00F1BA28 /* Build configuration list for PBXNativeTarget "rekoTests" */ = {
+		AF4F944A2143683B00E744FE /* Build configuration list for PBXNativeTarget "rekoTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				AFDABDE5214353DF00F1BA28 /* Debug */,
-				AFDABDE6214353DF00F1BA28 /* Release */,
+				AF4F944B2143683B00E744FE /* Debug */,
+				AF4F944C2143683B00E744FE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = AFDABDBC214353DD00F1BA28 /* Project object */;
+	rootObject = AF4F94222143683A00E744FE /* Project object */;
 }
