@@ -71,8 +71,11 @@ public class Socket {
     }
     
     public func sendUpdate(sender: CardsView) {
-//        let data: JSON
         client.emit("push card", ["card" : sender.id, "user" : "poppro"])
+    }
+    
+    public func sendImpression(type: CardType, impression: Bool) {
+        client.emit("register_impression", ["type" : type.rawValue, "impressed" : impression])
     }
     
     public func receivedUpdate() {
