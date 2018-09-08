@@ -14,12 +14,14 @@ class CardStackViewController: UIViewController {
     private var focused: Bool = false
     private var originalPosition: CGPoint!
     private var focusedTag: Int!
+    private let socket = Socket()
     
     var maskView = UIView()
 
     private init() {
         super.init(nibName: nil, bundle: nil)
         self.view.backgroundColor = .white
+        socket.connect()
     }
     
     public convenience init(withStack stackToUse: [CardsView]) {
@@ -130,6 +132,7 @@ extension CardStackViewController: CardsViewDelegate {
         print("Swiped up!!!!!")
         if focused && focusedTag == sender.id {
             view.bringSubview(toFront: sender)
+            socket.sendUpdate()
             UIView.animate(withDuration: 0.4, animations: {
                 sender.center = CGPoint(x: sender.center.x, y: sender.center.y - 1000)
                 self.maskView.alpha = 0

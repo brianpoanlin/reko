@@ -15,6 +15,7 @@ class ViewController: UIViewController {
     private var card = CardsView(viewModel: CardsViewModel())
     private var panGesture = UIPanGestureRecognizer()
     private var swipeGesture = UISwipeGestureRecognizer()
+    private let socket = Socket()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +26,12 @@ class ViewController: UIViewController {
         card.isUserInteractionEnabled = true
 //        card.addGestureRecognizer(panGesture)
         card.addGestureRecognizer(swipeGesture)
+        socket.connect()
+        
+        view.addSubview(card)
+        setupCardConstraints()
+        
+        socket.delegate = self
     }
     
     @objc func draggedView(_ sender: UIPanGestureRecognizer){
@@ -37,7 +44,7 @@ class ViewController: UIViewController {
     @objc func swiped(){
         print("swipedup")
         UIView.animate(withDuration: 0.5, animations: {
-            self.card.center = CGPoint(x: self.card.center.x, y: self.card.center.y - 600)
+            self.card.center = CGPoint(x: self.card.center.x, y: self.card.center.y + 900)
             })
     }
 
@@ -50,13 +57,16 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    @IBAction func tapped(_ sender: Any) {
+    @IBAction func tappedStudent(_ sender: Any) {
         
         let stack: [CardsView] = [CardsView(viewModel: CardsViewModel()), CardsView(viewModel: CardsViewModel()), CardsView(viewModel: CardsViewModel())]
 //        present(QRCodeViewController(withContent: "brianpoanlin.com"), animated: true, completion: nil)
 //        present(CardStackViewController(withStack: stack), animated: true, completion: nil)
         let navigationController = UINavigationController(rootViewController: CardStackViewController(withStack: stack))
         present(navigationController, animated: true, completion: nil)
+        
+
+//        socket.sendUpdate()
 
         
 //        view.addSubview(card)
@@ -68,7 +78,7 @@ class ViewController: UIViewController {
         card.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 1, constant: -20).isActive = true
         card.heightAnchor.constraint(equalToConstant: 200).isActive = true
         card.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        card.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        card.topAnchor.constraint(equalTo: view.topAnchor, constant: -300).isActive = true
         
         card.categoryLabel.translatesAutoresizingMaskIntoConstraints = false
         card.categoryLabel.topAnchor.constraint(equalTo: card.topAnchor, constant: 20).isActive = true
@@ -78,6 +88,15 @@ class ViewController: UIViewController {
         card.titleLabel.topAnchor.constraint(equalTo: card.categoryLabel.bottomAnchor, constant: 10).isActive = true
         card.titleLabel.leadingAnchor.constraint(equalTo: card.leadingAnchor, constant: 20).isActive = true
     }
+    
+}
+
+extension ViewController: SocketDelegate {
+    func receivedNewCard(data: [Any]) {
+        print("view controller received card")
+        swiped()
+    }
+    
     
 }
 
