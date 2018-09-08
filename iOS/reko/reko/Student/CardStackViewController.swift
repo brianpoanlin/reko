@@ -20,6 +20,8 @@ class CardStackViewController: UIViewController {
     private var focusedTag: Int!
     private let socket = Socket()
     
+    private var progressIndicator: UIActivityIndicatorView!
+    
     var maskView = UIView()
 
     private init() {
@@ -27,6 +29,7 @@ class CardStackViewController: UIViewController {
         self.view.backgroundColor = .white
         socket.delegate = self
         socket.connect()
+
     }
     
     public convenience init(withStack stackToUse: [CardsView]) {
@@ -45,7 +48,11 @@ class CardStackViewController: UIViewController {
         UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor : UIColor.white]
 
         self.navigationController?.setNavigationBarHidden(false, animated: false)
-
+        
+        progressIndicator = UIActivityIndicatorView(frame: CGRect(x: self.view.frame.width/2-50, y: self.view.frame.height/2-50, width: 100, height: 100))
+        progressIndicator.activityIndicatorViewStyle = .gray
+        view.addSubview(progressIndicator)
+        progressIndicator.startAnimating()
     }
     
     private func setupView() {
@@ -186,6 +193,9 @@ extension CardStackViewController: SocketDelegate {
     }
     
     func receivedCardStack(data: [Any]) {
+        progressIndicator.hidesWhenStopped = true
+        progressIndicator.stopAnimating()
+        
         let json: JSON = JSON(arrayLiteral: data.first)
         print("\n\n\n\n\n\n\n\n\n\n\n THIS IS JSON")
 //        print(json)

@@ -59,6 +59,8 @@ public class CardsView: UIView {
         viewModel.elements.forEach({
             let label = UILabel()
             label.text = $0
+            label.contentMode = .scaleToFill
+            label.numberOfLines = 0
             label.textColor = .white
             label.font = UIFont.init(name: "Helvetica Neue", size: 18)
 
@@ -76,9 +78,6 @@ public class CardsView: UIView {
     }
     
     public func setupSubviewConstraints() {
-        
-       
-        
         categoryLabel.translatesAutoresizingMaskIntoConstraints = false
         categoryLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 20).isActive = true
         categoryLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20).isActive = true
@@ -86,11 +85,15 @@ public class CardsView: UIView {
         labels[0].translatesAutoresizingMaskIntoConstraints = false
         labels[0].topAnchor.constraint(equalTo: categoryLabel.topAnchor, constant: 20).isActive = true
         labels[0].leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20).isActive = true
+        labels[0].trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20).isActive = true
+
         
         for i in 1..<labels.count {
             labels[i].translatesAutoresizingMaskIntoConstraints = false
             labels[i].topAnchor.constraint(equalTo: labels[i-1].bottomAnchor, constant: 10).isActive = true
             labels[i].leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20).isActive = true
+            labels[i].trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20).isActive = true
+
         }
 
 //
