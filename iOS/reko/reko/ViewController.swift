@@ -16,6 +16,7 @@ class ViewController: UIViewController {
     private var panGesture = UIPanGestureRecognizer()
     private var swipeGesture = UISwipeGestureRecognizer()
     private let socket = Socket()
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,13 +27,15 @@ class ViewController: UIViewController {
         card.isUserInteractionEnabled = true
 //        card.addGestureRecognizer(panGesture)
         card.addGestureRecognizer(swipeGesture)
-        socket.connect()
+//        socket.connect()
         
 //        view.addSubview(card)
 //        setupCardConstraints()
         
         socket.delegate = self
     }
+    
+
     
     @objc func draggedView(_ sender: UIPanGestureRecognizer){
         self.view.bringSubview(toFront: card)
