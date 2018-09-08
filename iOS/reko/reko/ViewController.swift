@@ -12,7 +12,7 @@ import QRCodeGenerator
 class ViewController: UIViewController {
     
     private let qrcode = UIImageView(frame: CGRect(x: 100, y: 100, width: 200, height: 200))
-    private var card = CardsView(viewModel: CardsViewModelGreen())
+    private var card = CardsView(viewModel: CardsViewModel(type: CardType.PersonalInfo, elements: ["hunter", "lol"], id: 0))
     private var panGesture = UIPanGestureRecognizer()
     private var swipeGesture = UISwipeGestureRecognizer()
     private let socket = Socket()
@@ -28,8 +28,8 @@ class ViewController: UIViewController {
         card.addGestureRecognizer(swipeGesture)
         socket.connect()
         
-        view.addSubview(card)
-        setupCardConstraints()
+//        view.addSubview(card)
+//        setupCardConstraints()
         
         socket.delegate = self
     }
@@ -59,7 +59,7 @@ class ViewController: UIViewController {
 
     @IBAction func tappedStudent(_ sender: Any) {
         
-        let stack: [CardsView] = [CardsView(viewModel: CardsViewModelGreen()), CardsView(viewModel: CardsViewModelGreen()), CardsView(viewModel: CardsViewModelGreen())]
+        let stack: [CardsView] = [CardsView(viewModel: CardsViewModel(type: CardType.PersonalInfo, elements: ["hunter", "lol"], id: 0))]
 //        present(QRCodeViewController(withContent: "brianpoanlin.com"), animated: true, completion: nil)
 //        present(CardStackViewController(withStack: stack), animated: true, completion: nil)
         let navigationController = UINavigationController(rootViewController: CardStackViewController(withStack: stack))
@@ -97,6 +97,10 @@ class ViewController: UIViewController {
 }
 
 extension ViewController: SocketDelegate {
+    func receivedCardStack(data: [Any]) {
+        
+    }
+    
     func receivedNewCard(data: [Any]) {
         print("view controller received card")
         swiped()

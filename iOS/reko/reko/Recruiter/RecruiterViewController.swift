@@ -12,7 +12,7 @@ import SwiftyJSON
 class RecruiterViewController: UIViewController {
 
     private let socket = Socket()
-    private var cardView: CardsView = CardsView(viewModel: CardsViewModelGreen())
+    private var cardView: CardsView = CardsView(viewModel: CardsViewModel(type: CardType.PersonalInfo, elements: ["hunter", "lol"], id: 0))
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,6 +58,10 @@ class RecruiterViewController: UIViewController {
 }
 
 extension RecruiterViewController: SocketDelegate {
+    func receivedCardStack(data: [Any]) {
+        
+    }
+    
     func receivedNewCard(data: [Any]) {
 //        print(data)
         
@@ -72,8 +76,8 @@ extension RecruiterViewController: SocketDelegate {
             if let cardArray: JSON = array.first {
                 let card = cardArray["card"]
                 print(card["type"].stringValue)
-                let viewModel = CardsViewModel(type: card["type"].stringValue, title: card["title"].stringValue, description: card["description"].stringValue, id: card["id"].intValue)
-//                let viewModel = CardsViewModelBlue()
+//                let viewModel = CardsViewModel(type: card["type"].stringValue, title: card["title"].stringValue, description: card["description"].stringValue, id: card["id"].intValue)
+                let viewModel = CardsViewModel(type: CardType.PersonalInfo, elements: ["hunter", "lol"], id: 0)
                 let newCard = CardsView(viewModel: viewModel)
                 view.addSubview(newCard)
                 newCard.translatesAutoresizingMaskIntoConstraints = false

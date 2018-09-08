@@ -16,10 +16,11 @@ public protocol CardsViewDelegate {
 
 public class CardsView: UIView {
     
-    private var viewModel: CardsViewModelProtocol =  CardsViewModel(type: "", title: "", description: "", id: 0)
+    private var viewModel: CardsViewModelProtocol!
     public var titleLabel: UILabel = UILabel()
     public var categoryLabel: UILabel = UILabel()
     public var id: Int = 0
+    public var labels = [UILabel]()
     
     public var delegate: CardsViewDelegate?
     
@@ -31,10 +32,8 @@ public class CardsView: UIView {
         self.init()
         self.viewModel = viewModel
         setupView()
-        setupConstraints()
         self.isUserInteractionEnabled = true
         id = viewModel.id
-        
     }
     
     private func setupView() {
@@ -49,29 +48,58 @@ public class CardsView: UIView {
         swipeDownRecognizer.direction = .down
         self.addGestureRecognizer(swipeDownRecognizer)
         
-        backgroundColor = viewModel.color
+        backgroundColor = viewModel.category.color
         layer.cornerRadius = 30
         
         addSubview(categoryLabel)
-        categoryLabel.text = viewModel.category
+        categoryLabel.text = viewModel.category.rawValue
         categoryLabel.textColor = .white
         categoryLabel.font = UIFont.init(name: "Helvetica Neue", size: 12)
         
-        addSubview(titleLabel)
-        titleLabel.text = viewModel.title
-        titleLabel.textColor = .white
-        titleLabel.font = UIFont.init(name: "Helvetica Neue", size: 18)
+        viewModel.elements.forEach({
+            let label = UILabel()
+            label.text = $0
+            label.textColor = .white
+            label.font = UIFont.init(name: "Helvetica Neue", size: 18)
+
+            labels.append(label)
+        })
+        
+        labels.forEach({
+            addSubview($0)
+        })
+        
+//        addSubview(titleLabel)
+//        titleLabel.text = viewModel.title
+//        titleLabel.textColor = .white
+//        titleLabel.font = UIFont.init(name: "Helvetica Neue", size: 18)
     }
     
-    private func setupConstraints() {
+    public func setupSubviewConstraints() {
+        
+       
+        
+        categoryLabel.translatesAutoresizingMaskIntoConstraints = false
+        categoryLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 20).isActive = true
+        categoryLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20).isActive = true
+        
+        labels[0].translatesAutoresizingMaskIntoConstraints = false
+        labels[0].topAnchor.constraint(equalTo: categoryLabel.topAnchor, constant: 20).isActive = true
+        labels[0].leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20).isActive = true
+        
+        for i in 1..<labels.count {
+            labels[i].translatesAutoresizingMaskIntoConstraints = false
+            labels[i].topAnchor.constraint(equalTo: labels[i-1].bottomAnchor, constant: 10).isActive = true
+            labels[i].leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20).isActive = true
+        }
 
-//        titleLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
-//        titleLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
+//
+//        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+//        titleLabel.topAnchor.constraint(equalTo: categoryLabel.bottomAnchor, constant: 10).isActive = true
+//        titleLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20).isActive = true
     }
 
     @objc private func tapped() {
-        print("Tapped!!!!!")
-
         delegate?.tapped(sender: self)
     }
     
@@ -81,8 +109,6 @@ public class CardsView: UIView {
     }
     
     @objc private func swipedDown() {
-        print("Swiped down!!!!!")
-        
         delegate?.swipedDown(sender: self)
     }
     
