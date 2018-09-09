@@ -7,6 +7,7 @@
 var app = require('../app');
 var debug = require('debug')('reko:server');
 var http = require('http');
+let request = require('request');
 
 /**
  * Get port from environment and store in Express.
@@ -20,6 +21,105 @@ app.set('port', port);
  */
 
 var server = http.createServer(app);
+
+
+let MongoClient = require('mongodb').MongoClient;
+
+let uri = "mongodb+srv://poppro:reko123@reko-no8a0.gcp.mongodb.net/";
+
+
+let io = require('socket.io')(server);
+
+io.sockets.on('connection', function (socket) {
+    console.log('Connection');
+    let id = socket.id;
+    //console.log(io.sockets.connected[id]);
+
+    socket.on('push card', function (data) {
+        MongoClient.connect(uri, function(err, client) {
+            if(!err) {
+                const db = client.db('reko');
+                db.collection("users", function(err, collection){
+                    if(!err) {
+                        collection.findOne({"user": data.user}, function(err, item) {
+                            socket.broadcast.emit('new_card', {card: item.cards[data.card]});
+                        });
+                    } else {
+                        console.log(err);
+                    }
+                });
+                client.close();
+            } else {
+                console.log(err);
+            }
+        });
+    }).on('login', function(data) {
+        console.log('Logged in: ' + data.user);
+        MongoClient.connect(uri, function(err, client) {
+            if(!err) {
+                const db = client.db('reko');
+                db.collection("users", function(err, collection){
+                    if(!err) {
+                        collection.findOne({"user": data.user}, function(err, item) {
+                            socket.emit('card stack', {card: item.cards});
+                        });
+                    } else {
+                        console.log(err);
+                    }
+                });
+                client.close();
+            } else {
+                console.log(err);
+            }
+        });
+    }).on('register_impression', function(data) {
+        console.log(data);
+
+        MongoClient.connect(uri, function(err, client) {
+            if (!err) {
+                const db = client.db('reko');
+                db.collection("users", function (err, collection) {
+                    if (!err) {
+                        let str = data.type.toLowerCase();
+                        let upd2 = {};
+                        upd2[str] = data.impressed;
+                        let upd = {$set: upd2};
+                        collection.updateOne({user: 'poppro'}, upd, function(err, res) {
+                            if (err) throw err;
+                            console.log("1 document updated");
+                        });
+
+                        collection.findOne({"user": "poppro"}, function(err, item) {
+                            console.log(item);
+                        });
+                    } else {
+                        console.log(err);
+                    }
+                client.close();
+                });
+            } else {
+                console.log(err);
+            }
+        });
+
+    }).on('get_stats', function(data) {
+
+    }).on('start_session', function(data) {
+        socket.broadcast.emit('start_session', {});
+    }).on('end_session', function(data) {
+        socket.broadcast.emit('end_session', {});
+
+        request.post({
+            json: { student_id: 'poppro',
+                    recruiter_id: 'brian'},
+            headers: {'content-type' : 'application/json'},
+            url:     'https://reko.serveo.net/jobMatch/',
+        }, function(error, response, body){
+            console.log(body);
+            io.emit('stats', {employment: body.jobMatchProb});
+        });
+    });
+});
 
 
 /**

@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var MongoClient = require('mongodb').MongoClient;
+var fs = require('fs');
 
 var uri = "mongodb+srv://poppro:reko123@reko-no8a0.gcp.mongodb.net/";
 
@@ -22,69 +23,61 @@ router.get('/', function(req, res, next) {
                         cards:
                          [
                              {
-                                 type: 'WE',
-                                 title: 'Software Engineer',
-                                 company: 'Facebook',
-                                 from: 'Present',
-                                 to: 'Future',
-                                 desc: 'I worked as a software engineer at Facebook!',
+                                 type: 'OT',
+                                 elements: ['Links', 'Github - www.github.com/poppro', 'Personal site - www.poppro.net'],
                                  id: 0
                              },
                              {
-                                 type: 'PI',
-                                 name: 'Hunter Harloff',
-                                 email: 'harloff@umich.edu',
-                                 phone: '',
-                                 links: ['poppro.net'],
+                                 type: 'CW',
+                                 elements: ['EECS 280 - University of Michigan'],
                                  id: 1
                              },
                              {
-                                 type: 'SK',
-                                 skills: ['Javascript', 'C++', 'Java', 'Backend', 'Webservice'],
+                                 type: 'VL',
+                                 elements: ['BBBS', 'Sept. 2015 - March 2017', 'Mentor'],
                                  id: 2
                              },
                              {
-                                 type: 'ED',
-                                 school: 'University of Michigan',
-                                 degree: 'Computer Science',
-                                 month: 'April',
-                                 year: '2022',
-                                 gpa: '4.0'
-                             },
-                             {
                                  type: 'AW',
-                                 awards: [
-                                    {
-                                        name: '',
-		                                date: ''
-                                    }
-                                ]
+                                 elements: ['MHacks Best Financial Hack - Sept. 2017'],
+                                 id: 3
                              },
                              {
-                                 type: 'VL',
-                                 org: 'BBBS',
-                                 from: 'Sept. 2015',
-                                 to: 'March 2017',
-                                 desc: 'Mentor'
+                                 type: 'SK',
+                                 elements: ['Javascript', 'C++', 'Java', 'Backend', 'Webservice'],
+                                 id: 4
                              },
                              {
-                                 type: 'CW',
-                                 courses: [
-                                    {
-                                        name: 'EECS 280',
-                                        school: 'University of Michigan'
-                                    }
-                                 ]
+                                 type: 'WE',
+                                 elements: ['Software Engineer','Facebook', 'Present - Future','I worked as a software engineer at Facebook!'],
+                                 id: 5
+                             },
+                             {
+                                 type: 'ED',
+                                 elements: ['University of Michigan', 'Computer Science', 'April', '2022', '4.0'],
+                                 id: 6
+                             },
+                             {
+                                 type: 'PI',
+                                 elements: ['Hunter Harloff','harloff@umich.edu', '','poppro.net'],
+                                 id: 7
                              }
-                         ]
+                         ],
+                        "we": 80,
+                        "ed": 80,
+                        "sk": 80,
+                        "aw": 80,
+                        "vl": 80,
+                        "cw": 80,
+                        "ot": 80
                     });
-                    collection.insertOne({"user": "brian",
-                        "pass": "reko"});
-
+                    let obj = JSON.parse(fs.readFileSync(__dirname + '/data.json', 'utf8'));
+                    collection.insertOne(obj);
                 } else {
                     console.log(err);
                 }
             });
+            client.close();
         } else {
             console.log(err);
         }
