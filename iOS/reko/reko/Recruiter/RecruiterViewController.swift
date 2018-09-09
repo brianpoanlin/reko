@@ -48,8 +48,8 @@ class RecruiterViewController: UIViewController {
         addAnimation()
         setupLabel()
         setupSlider()
-        navigationController?.navigationBar.topItem?.title = "Recruiter"
-        navigationController?.navigationBar.tintColor = UIColor.reko.red.color()
+        self.navigationItem.title = "Recruiter"
+        navigationController?.navigationBar.tintColor = UIColor.white
 
         UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor : UIColor.reko.red.color()]
     }
