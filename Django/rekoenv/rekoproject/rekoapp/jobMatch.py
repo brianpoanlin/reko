@@ -4,7 +4,6 @@ import json
 import random
 import string
 import pandas as pd
-import seaborn as sns
 from pymongo import MongoClient
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.ensemble import GradientBoostingClassifier
@@ -56,6 +55,7 @@ def read_mongo(connection, collection, recruiter_id, student_id):
 
 def jobPredict(X_train, y_train, X_predict):
     model = LogisticRegression()
+
     # model = RandomForestClassifier(n_estimators = 1000)
 
     X_tr, X_te, y_tr, y_te = train_test_split(X_train, y_train, test_size=0.2, random_state=42)
@@ -81,10 +81,6 @@ def jobMatchApi(requestJson):
 
     trainData, testData = read_mongo(connection, collection, recruiter_id, student_id)
 
-    corr = trainData.corr()
-    # plt.figure(figsize = (20,15))
-    # sns.heatmap(corr, xticklabels=corr.columns.values, yticklabels=corr.columns.values, vmin=0, vmax=1, cmap = 'Blues', annot=True)
-
     X_cols = ['we', 'ed', 'sk', 'aw', 'vl', 'cw', 'ot']
 
     X_train = trainData[X_cols]
@@ -93,9 +89,47 @@ def jobMatchApi(requestJson):
     X_predict = testData[X_cols]
     jobMatchProb, accuracy = jobPredict(X_train, y_train, X_predict)
 
+    we_a = X_train['we'].mean()
+    ed_a = X_train['ed'].mean()
+    sk_a = X_train['sk'].mean()
+    aw_a = X_train['aw'].mean()
+    vl_a = X_train['vl'].mean()
+    cw_a = X_train['cw'].mean()
+    ot_a = X_train['ot'].mean()
+
     returnJson = {
         'student_id': student_id,
-        'jobMatchProb': jobMatchProb * 100,
+        'student_stats': {
+            'we':{
+                's': X_predict['we'][0],
+                'a': we_a
+            },
+            'ed':{
+                's':X_predict['ed'][0],
+                'a': ed_a
+            },
+            'sk':{
+                's': X_predict['sk'][0],
+                'a': sk_a
+            },
+            'aw':{
+                's': X_predict['aw'][0],
+                'a': aw_a
+            },
+            'vl':{
+                's': X_predict['vl'][0],
+                'a': vl_a
+            },
+            'cw':{
+                's': X_predict['cw'][0],
+                'a': cw_a
+            },
+            'ot':{
+                's': X_predict['ot'][0],
+                'a': ot_a
+            },
+            'jobMatchProb': jobMatchProb[0] * 100,
+        },
         'accuracy': accuracy * 100
     }
 
