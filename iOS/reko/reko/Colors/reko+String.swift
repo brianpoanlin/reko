@@ -17,7 +17,8 @@ extension String {
             "ED"    :   CardType.Education,
             "AW"    :   CardType.Awards,
             "VL"    :   CardType.Volunteering,
-            "CW"    :   CardType.Coursework
+            "CW"    :   CardType.Coursework,
+            "OT"    :   CardType.Other
         ]
         
         return map[self] ?? CardType.WorkExperience

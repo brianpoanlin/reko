@@ -10,6 +10,8 @@ target 'reko' do
   pod 'QRCodeGenerator'
   pod 'Socket.IO-Client-Swift', '~> 13.3.0'
   pod 'SwiftyJSON'
+  pod 'UICircularProgressRing'
+  pod 'Charts'
 
   target 'rekoTests' do
     inherit! :search_paths

@@ -22,9 +22,17 @@ class QRScannerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        view.backgroundColor = UIColor.reko.red.color()
         imgView = UIImageView(frame: self.view.frame)
         view.addSubview(imgView)
+        
+        self.navigationItem.title = "Scanner"
+        
+        imgView.translatesAutoresizingMaskIntoConstraints = false
+        imgView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        imgView.heightAnchor.constraint(equalTo: view.heightAnchor).isActive = true
+        imgView.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
+
         client.connect()
     }
     

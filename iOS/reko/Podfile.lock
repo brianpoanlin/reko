@@ -1,32 +1,42 @@
 PODS:
   - Alamofire (4.7.3)
+  - Charts (3.1.1):
+    - Charts/Core (= 3.1.1)
+  - Charts/Core (3.1.1)
   - QRCodeGenerator (1.0.5)
   - Socket.IO-Client-Swift (13.3.0):
     - Starscream (~> 3.0.2)
   - Starscream (3.0.5)
   - SwiftyJSON (4.1.0)
+  - UICircularProgressRing (3.3.2)
 
 DEPENDENCIES:
   - Alamofire
+  - Charts
   - QRCodeGenerator
   - Socket.IO-Client-Swift (~> 13.3.0)
   - SwiftyJSON
+  - UICircularProgressRing
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
+    - Charts
     - QRCodeGenerator
     - Socket.IO-Client-Swift
     - Starscream
     - SwiftyJSON
+    - UICircularProgressRing
 
 SPEC CHECKSUMS:
   Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
+  Charts: 90a4d61da0f6e06684c591e3bcab11940fe61736
   QRCodeGenerator: dfa6981a0e571c0f7d90cc15e9ecc6d849a14d27
   Socket.IO-Client-Swift: 0afb192a562db90d50e3f7f7421c06925a3f0179
   Starscream: faf918b2f2eff7d5dd21180646bf015a669673bd
   SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
+  UICircularProgressRing: f5efb3e1fd8387bfd59f71738501d68f58b7e84e
 
-PODFILE CHECKSUM: f67475982e6327a0b4ae408e47a8ae13493e4bae
+PODFILE CHECKSUM: e3db28c12805cc5fe49d278938cd4a64699abdbd
 
 COCOAPODS: 1.5.3
