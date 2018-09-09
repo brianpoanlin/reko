@@ -50,6 +50,14 @@ class CardStackViewController: UIViewController {
         self.navigationController?.setNavigationBarHidden(false, animated: false)
         navigationController?.navigationBar.topItem?.title = "Student"
 
+        let button = UIButton.init(type: .custom)
+        button.setImage(UIImage.init(named: "connect_icon.png"), for: .normal)
+        button.addTarget(self, action:#selector(connectTapped), for:.touchUpInside)
+        button.frame = CGRect.init(x: 0, y: 0, width: 20, height: 20) //CGRectMake(0, 0, 30, 30)
+        let barButton = UIBarButtonItem.init(customView: button)
+        self.navigationItem.rightBarButtonItem = barButton
+        
+        
         self.navigationItem.title = "Student"
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
 
@@ -57,6 +65,11 @@ class CardStackViewController: UIViewController {
         progressIndicator.activityIndicatorViewStyle = .gray
         view.addSubview(progressIndicator)
         progressIndicator.startAnimating()
+    }
+    
+    @objc
+    private func connectTapped() {
+        present(QRCodeViewController(withContent: "brianlin.com"), animated: true, completion: nil )
     }
     
     private func setupView() {

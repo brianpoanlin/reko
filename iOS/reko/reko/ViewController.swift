@@ -46,6 +46,7 @@ class ViewController: UIViewController {
 //        let navigationController = UINavigationController(rootViewController: QRCodeViewController(withContent: "brianlin.com"))
 //        present(navigationController, animated: true, completion: nil)
         navigationController?.pushViewController(CardStackViewController(), animated: true)
+//        navigationController?.pushViewController(QRCodeViewController(), animated: true)
     }
     
     @IBAction func tappedRecruiter(_ sender: Any) {

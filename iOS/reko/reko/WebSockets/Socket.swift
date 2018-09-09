@@ -18,7 +18,7 @@ public protocol SocketDelegate {
 
 public class Socket {
     
-    private let manager = SocketManager(socketURL: URL(string: "http://10.251.75.169:2000")!, config: [.log(true), .compress])
+    private let manager = SocketManager(socketURL: URL(string: "http://10.251.75.169:3000")!, config: [.log(true), .compress])
     private let client: SocketIOClient
     public var delegate: SocketDelegate?
     

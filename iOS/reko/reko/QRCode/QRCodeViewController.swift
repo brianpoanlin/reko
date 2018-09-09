@@ -56,11 +56,10 @@ class QRCodeViewController: UIViewController {
         qrCodeImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         qrCodeImageView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         
-        let margins = view.layoutMarginsGuide
-        instructionLabel.translatesAutoresizingMaskIntoConstraints = false
-        instructionLabel.leadingAnchor.constraint(equalTo: margins.leadingAnchor, constant: 20).isActive = true
-        instructionLabel.leadingAnchor.constraint(equalTo: margins.trailingAnchor, constant: 20).isActive = true
-        instructionLabel.topAnchor.constraint(equalTo: margins.topAnchor, constant: 20).isActive = true
+//        instructionLabel.translatesAutoresizingMaskIntoConstraints = false
+//        instructionLabel.leadingAnchor.constraint(equalTo: margins.leadingAnchor, constant: 20).isActive = true
+//        instructionLabel.leadingAnchor.constraint(equalTo: margins.trailingAnchor, constant: 20).isActive = true
+//        instructionLabel.topAnchor.constraint(equalTo: margins.topAnchor, constant: 20).isActive = true
     }
 
     override func didReceiveMemoryWarning() {
@@ -81,7 +80,7 @@ extension QRCodeViewController: SocketDelegate {
     
     func startedSession() {
         print("Session Started")
-        navigationController?.pushViewController(CardStackViewController(), animated: true)
+        self.dismiss(animated: true, completion: nil)
     }
     
     func endedSession() {
