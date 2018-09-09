@@ -4,6 +4,7 @@ import json
 import random
 import string
 import pandas as pd
+import seaborn as sns
 from pymongo import MongoClient
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.ensemble import GradientBoostingClassifier
@@ -71,10 +72,18 @@ def jobPredict(X_train, y_train, X_predict):
 def jobMatchApi(requestJson):
     connection = 'mongodb+srv://poppro:reko123@reko-no8a0.gcp.mongodb.net/'
     collection = 'users'
+    print (requestJson)
     student_id = requestJson['student_id']
     recruiter_id = requestJson['recruiter_id']
 
+    print (student_id)
+    print (recruiter_id)
+
     trainData, testData = read_mongo(connection, collection, recruiter_id, student_id)
+
+    corr = trainData.corr()
+    # plt.figure(figsize = (20,15))
+    # sns.heatmap(corr, xticklabels=corr.columns.values, yticklabels=corr.columns.values, vmin=0, vmax=1, cmap = 'Blues', annot=True)
 
     X_cols = ['we', 'ed', 'sk', 'aw', 'vl', 'cw', 'ot']
 
