@@ -102,7 +102,21 @@ io.sockets.on('connection', function (socket) {
         });
 
     }).on('send_stats', function(data) {
-        socket.broadcast.emit('display_stats', {});
+        request.post({
+            json: { student_id: 'poppro',
+                recruiter_id: 'brian'},
+            headers: {'content-type' : 'application/json'},
+            url:     'https://reko.serveo.net/jobMatch/',
+        }, function(error, response, body){
+            body.student_stats.jobMatchProb = parseInt(body.student_stats.jobMatchProb);
+            Object.keys(body.student_stats).forEach(function(el) {
+                if(el.key !== 'jobMatchProb') {
+                    el.s = parseInt(el.s);
+                    el.a = parseInt(el.a);
+                }
+            });
+            socket.broadcast.emit('display_stats', {employment: body.student_stats});
+        });
     }).on('start_session', function(data) {
         socket.broadcast.emit('start_session', {});
     }).on('end_session', function(data) {
@@ -120,7 +134,6 @@ io.sockets.on('connection', function (socket) {
                     el.a = parseInt(el.a);
                 }
             });
-            console.log(body.student_stats);
             io.emit('stats', {employment: body.student_stats});
         });
     });
