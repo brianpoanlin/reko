@@ -35,11 +35,10 @@ class CardStackViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         UINavigationBar.appearance().barTintColor = UIColor.white
-        UINavigationBar.appearance().tintColor = UIColor.reko.red.color()
+        UINavigationBar.appearance().tintColor = UIColor.white
         UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor : UIColor.red]
-
     }
     
     override func viewDidLoad() {
@@ -50,6 +49,9 @@ class CardStackViewController: UIViewController {
         self.navigationController?.view.backgroundColor = .clear
         self.navigationController?.setNavigationBarHidden(false, animated: false)
         navigationController?.navigationBar.topItem?.title = "Student"
+
+        self.navigationItem.title = "Student"
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
 
         progressIndicator = UIActivityIndicatorView(frame: CGRect(x: self.view.frame.width/2-50, y: self.view.frame.height/2-50, width: 100, height: 100))
         progressIndicator.activityIndicatorViewStyle = .gray

@@ -13,7 +13,7 @@ class ViewController: UIViewController {
 
     override func viewWillDisappear(_ animated: Bool) {
         UINavigationBar.appearance().barTintColor = UIColor.white
-        UINavigationBar.appearance().tintColor = UIColor.reko.red.color()
+        UINavigationBar.appearance().tintColor = UIColor.white
         UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor : UIColor.red]
     }
     
