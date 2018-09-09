@@ -34,7 +34,6 @@ io.sockets.on('connection', function (socket) {
     console.log('Connection');
     let id = socket.id;
     //console.log(io.sockets.connected[id]);
-
     socket.on('push card', function (data) {
         MongoClient.connect(uri, function(err, client) {
             if(!err) {
@@ -102,13 +101,12 @@ io.sockets.on('connection', function (socket) {
             }
         });
 
-    }).on('get_stats', function(data) {
-
+    }).on('send_stats', function(data) {
+        socket.broadcast.emit('display_stats', {});
     }).on('start_session', function(data) {
         socket.broadcast.emit('start_session', {});
     }).on('end_session', function(data) {
         socket.broadcast.emit('end_session', {});
-
         request.post({
             json: { student_id: 'poppro',
                     recruiter_id: 'brian'},
