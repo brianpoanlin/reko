@@ -13,7 +13,9 @@ class ResultViewController: UIViewController {
     
     private let progressRing = UICircularProgressRing(frame: CGRect(x: 0, y: 0, width: 240, height: 240))
     private let topLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 50))
-    private let bottomLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 50))
+    private let endSessionButton = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 30))
+    private let client = Socket()
+
     private var target: Int!
 
     public convenience init(withTarget max: Int) {
@@ -31,10 +33,15 @@ class ResultViewController: UIViewController {
         progressRing.outerRingColor = UIColor.white
         progressRing.outerRingWidth = 20
         progressRing.fontColor = .white
+        progressRing.font = UIFont(name: "Helvetica Neue", size: 24.0)!
 
         view.addSubview(progressRing)
         view.addSubview(topLabel)
-        view.addSubview(bottomLabel)
+        view.addSubview(endSessionButton)
+        
+        endSessionButton.addTarget(self, action: #selector(handleTap), for: .touchUpInside)
+        
+        client.connect()
         
         setupConstraints()
     }
@@ -50,7 +57,7 @@ class ResultViewController: UIViewController {
         progressRing.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         progressRing.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         
-        topLabel.text = "Results"
+        topLabel.text = "Match Results"
         topLabel.textAlignment = .center
         topLabel.textColor = UIColor.white
         topLabel.font = UIFont(name: "Helvetica Neue", size: 36)
@@ -59,15 +66,18 @@ class ResultViewController: UIViewController {
         topLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         topLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 100).isActive = true
         
-        bottomLabel.text = "Compatiility for Position"
-        bottomLabel.textColor = UIColor.white
-        topLabel.textAlignment = .center
-        bottomLabel.font = UIFont(name: "Helvetica Neue", size: 28)
-        bottomLabel.translatesAutoresizingMaskIntoConstraints = false
-        bottomLabel.widthAnchor.constraint(equalToConstant: 300).isActive = true
-        bottomLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        bottomLabel.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -100).isActive = true
-        
+        endSessionButton.setTitle("Send Student", for: .normal)
+        endSessionButton.setTitleColor(.white, for: .normal)
+        endSessionButton.setTitleColor(UIColor.reko.purple.color(), for: .highlighted)
+        endSessionButton.titleLabel?.font = UIFont(name: "Helvetica Neue", size: 20)
+        endSessionButton.backgroundColor = .clear
+        endSessionButton.layer.borderWidth = 1
+        endSessionButton.layer.borderColor = UIColor.white.cgColor
+        endSessionButton.layer.cornerRadius = 5
+        endSessionButton.translatesAutoresizingMaskIntoConstraints = false
+        endSessionButton.widthAnchor.constraint(equalToConstant: 200).isActive = true
+        endSessionButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        endSessionButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -80).isActive = true
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -77,15 +87,10 @@ class ResultViewController: UIViewController {
         }
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @objc
+    private func handleTap() {
+        client.sendStats()
+        self.dismiss(animated: true, completion: nil)
     }
-    */
 
 }

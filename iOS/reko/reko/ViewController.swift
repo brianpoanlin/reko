@@ -51,11 +51,12 @@ class ViewController: UIViewController {
     
     @IBAction func tappedRecruiter(_ sender: Any) {
 //        let navigationController = UINavigationController(rootViewController: QRScannerViewController())
-        let navigationController = UINavigationController(rootViewController: RecruiterViewController())
-
+////        let navigationController = UINavigationController(rootViewController: RecruiterViewController())
+//
 //        present(navigationController, animated: true, completion: nil)
-        self.navigationController?.pushViewController(RecruiterViewController(), animated: true)
-//        self.navigationController?.present(ResultViewController(), animated: true, completion: nil)
+        navigationController?.pushViewController(QRScannerViewController(), animated: true)
+//        self.navigationController?.pushViewController(RecruiterViewController(), animated: true)
+//        self.navigationController?.present(StatsViewController(), animated: true, completion: nil)
 
     }
     

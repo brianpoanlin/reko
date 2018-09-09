@@ -123,6 +123,7 @@ class CardStackViewController: UIViewController {
     @objc
     private func endInterviewTapped() {
         socket.endSession()
+        self.present(WaitingViewController(), animated: true, completion: nil)
     }
 }
 
@@ -165,7 +166,6 @@ extension CardStackViewController: CardsViewDelegate {
     
     func swipedUp(sender: CardsView) {
         print("Swiped up!!!!!")
-        if focused && focusedTag == sender.id {
             view.bringSubview(toFront: sender)
             socket.sendUpdate(sender: sender)
             UIView.animate(withDuration: 0.4, animations: {
@@ -176,7 +176,6 @@ extension CardStackViewController: CardsViewDelegate {
             })
             
             focused = false
-        }
     }
     
     func tapped(sender: CardsView) {
@@ -225,6 +224,10 @@ extension CardStackViewController: CardsViewDelegate {
 }
 
 extension CardStackViewController: SocketDelegate {
+    func statsReceived(data: [Any]) {
+        
+    }
+    
     func startedSession() {
         
     }

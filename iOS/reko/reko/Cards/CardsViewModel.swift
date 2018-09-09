@@ -73,6 +73,27 @@ public enum CardType {
             return "OT"
         }
     }
+    
+    var abbreviationLowercase: String {
+        switch self {
+        case .PersonalInfo:
+            return "pi"
+        case .Education:
+            return "ed"
+        case .Skills:
+            return "sk"
+        case .WorkExperience:
+            return "we"
+        case .Awards:
+            return "aw"
+        case .Volunteering:
+            return "vl"
+        case .Coursework:
+            return "cw"
+        case .Other:
+            return "ot"
+        }
+    }
 }
 
 public protocol CardsViewModelProtocol {

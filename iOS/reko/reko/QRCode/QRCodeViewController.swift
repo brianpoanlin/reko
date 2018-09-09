@@ -70,6 +70,10 @@ class QRCodeViewController: UIViewController {
 }
 
 extension QRCodeViewController: SocketDelegate {
+    func statsReceived(data: [Any]) {
+        
+    }
+    
     func endedSession(data: [Any]) {
         
     }

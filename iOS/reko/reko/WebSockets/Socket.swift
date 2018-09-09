@@ -14,11 +14,12 @@ public protocol SocketDelegate {
     func receivedCardStack(data: [Any])
     func startedSession()
     func endedSession(data: [Any])
+    func statsReceived(data: [Any])
 }
 
 public class Socket {
     
-    private let manager = SocketManager(socketURL: URL(string: "http://10.251.75.169:3000")!, config: [.log(true), .compress])
+    private let manager = SocketManager(socketURL: URL(string: "https://rekoo.herokuapp.com/")!, config: [.log(true), .compress])
     private let client: SocketIOClient
     public var delegate: SocketDelegate?
     
@@ -76,6 +77,11 @@ public class Socket {
             self?.delegate?.endedSession(data: data)
             return
         }
+        
+        client.on("display_stats") {[weak self] data, ack in
+            self?.delegate?.statsReceived(data: data)
+            return
+        }
     }
     
     public func startSession() {
@@ -92,6 +98,10 @@ public class Socket {
     
     public func sendImpression(type: CardType, impression: Int) {
         client.emit("register_impression", ["type" : type.abbreviation, "impressed" : impression])
+    }
+    
+    public func sendStats() {
+        client.emit("send_stats", ["":""])
     }
     
     public func receivedUpdate() {

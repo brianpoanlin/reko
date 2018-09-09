@@ -200,13 +200,15 @@ class RecruiterViewController: UIViewController {
 }
 
 extension RecruiterViewController: SocketDelegate {
+    func statsReceived(data: [Any]) {
+        
+    }
+    
     func startedSession() {
         
     }
     
     func endedSession(data: [Any]) {
-        print("SESSION ENDED!!!!!")
-//        print(data)
         let json: JSON = JSON(arrayLiteral: data.first)
         print(json)
         
@@ -220,13 +222,6 @@ extension RecruiterViewController: SocketDelegate {
 
             }
         }
-
-//        if let number = json["employment"].string {
-//            print(number)
-//            if let float = Float(number) {
-//                present(ResultViewController(withTarget: float), animated: true, completion: nil)
-//            }
-//        }
     }
     
     func receivedCardStack(data: [Any]) {
@@ -262,9 +257,9 @@ extension RecruiterViewController: SocketDelegate {
                     newCard.translatesAutoresizingMaskIntoConstraints = false
                     newCard.widthAnchor.constraint(equalTo: self.view.widthAnchor, multiplier: 1, constant: -20).isActive = true
                     newCard.heightAnchor.constraint(equalToConstant: 500).isActive = true
-                    newCard.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 60).isActive = true
+//                    newCard.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 60).isActive = true
                     newCard.centerXAnchor.constraint(equalTo:self.view.centerXAnchor).isActive = true
-//                    newCard.centerYAnchor.constraint(equalTo:self.view.centerYAnchor).isActive = true
+                    newCard.centerYAnchor.constraint(equalTo:self.view.centerYAnchor).isActive = true
 
                     newCard.setupSubviewConstraints()
                 }
@@ -281,7 +276,7 @@ extension RecruiterViewController: SocketDelegate {
                 
                 DispatchQueue.main.async {
                     UIView.animate(withDuration: 0.5, animations: {
-                        let translation = self.view.frame.height + 500
+                        let translation = self.view.frame.height + 800
                         newCard.center = CGPoint(x: newCard.center.x, y: translation)
                     })
                 }
