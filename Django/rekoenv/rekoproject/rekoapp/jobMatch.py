@@ -25,21 +25,31 @@ def read_mongo(connection, collection, recruiter_id, student_id):
     collection = db.users
 
     # Expand the cursor and construct the DataFrame
-    data = pd.DataFrame(list(collection.find({'user': 'brian'})))
+    data = pd.DataFrame(list(collection.find({'user': recruiter_id})))
+    studentData = list(collection.find({'user': student_id}))
 
-    ratingsList = []
     testData = []
+
+    testData.append(studentData[0]['we'])
+    testData.append(studentData[0]['ed'])
+    testData.append(studentData[0]['sk'])
+    testData.append(studentData[0]['aw'])
+    testData.append(studentData[0]['vl'])
+    testData.append(studentData[0]['cw'])
+    testData.append(studentData[0]['ot'])
+
     trainData = []
     imp = data['imp']
     for x in imp:
         for y in x:
-            print (y)
-            if (y['ratings']['result'] == -1 and y['user'] == student_id):
-                testData.append(y['ratings'])
-            else:
-                trainData.append(y['ratings'])
+            trainData.append(y['ratings'])
     trainData = pd.DataFrame(trainData, columns = ['we', 'ed', 'sk', 'aw', 'vl', 'cw', 'ot', 'result'])
-    testData = pd.DataFrame(testData, columns = ['we', 'ed', 'sk', 'aw', 'vl', 'cw', 'ot', 'result'])
+    testData = pd.DataFrame([testData], columns = ['we', 'ed', 'sk', 'aw', 'vl', 'cw', 'ot'])
+
+    print(trainData)
+    print(testData)
+
+    conn.close()
 
     return trainData, testData
 
