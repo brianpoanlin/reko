@@ -115,8 +115,15 @@ io.sockets.on('connection', function (socket) {
             headers: {'content-type' : 'application/json'},
             url:     'https://reko.serveo.net/jobMatch/',
         }, function(error, response, body){
-            console.log(body);
-            io.emit('stats', {employment: body.jobMatchProb});
+            body.student_stats.jobMatchProb = parseInt(body.student_stats.jobMatchProb);
+            Object.keys(body.student_stats).forEach(function(el) {
+                if(el.key !== 'jobMatchProb') {
+                    el.s = parseInt(el.s);
+                    el.a = parseInt(el.a);
+                }
+            });
+            console.log(body.student_stats);
+            io.emit('stats', {employment: body.student_stats});
         });
     });
 });

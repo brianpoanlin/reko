@@ -54,7 +54,7 @@ router.get('/', function(req, res, next) {
                              },
                              {
                                  type: 'ED',
-                                 elements: ['University of Michigan', 'Computer Science', 'April', '2022', '4.0'],
+                                 elements: ['University of Michigan', 'Computer Science', 'April, 2022', '4.0'],
                                  id: 6
                              },
                              {
