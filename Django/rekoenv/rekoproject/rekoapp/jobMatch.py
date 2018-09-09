@@ -41,10 +41,6 @@ def read_mongo(connection, collection, recruiter_id, student_id):
     trainData = pd.DataFrame(trainData, columns = ['we', 'ed', 'sk', 'aw', 'vl', 'cw', 'ot', 'result'])
     testData = pd.DataFrame(testData, columns = ['we', 'ed', 'sk', 'aw', 'vl', 'cw', 'ot', 'result'])
 
-    print (trainData)
-    print (testData)
-
-
     return trainData, testData
 
 def jobPredict(X_train, y_train, X_predict):
