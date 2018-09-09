@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "3E740ED3FD940304DD90A71D619D6DC9"
-               BlueprintName = "QRCodeGenerator"
+               BlueprintIdentifier = "E7C02E9E9857AA1D5C69D9D2AEFC9DBC"
+               BlueprintName = "MidpointSlider"
                ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "QRCodeGenerator.framework">
+               BuildableName = "MidpointSlider.framework">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

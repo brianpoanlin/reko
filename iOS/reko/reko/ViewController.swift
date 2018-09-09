@@ -50,7 +50,9 @@ class ViewController: UIViewController {
     }
     
     @IBAction func tappedRecruiter(_ sender: Any) {
-        let navigationController = UINavigationController(rootViewController: QRScannerViewController())
+//        let navigationController = UINavigationController(rootViewController: QRScannerViewController())
+        let navigationController = UINavigationController(rootViewController: RecruiterViewController())
+
         present(navigationController, animated: true, completion: nil)
     }
     
