@@ -29,7 +29,7 @@ extension UIColor {
             case .purple:
                 return UIColor(red:0.23, green:0.21, blue:0.38, alpha:1.0)
             case .pink:
-                return UIColor(red:0.94, green:0.74, blue:0.83, alpha:1.0)
+                return UIColor(red:0.95, green:0.59, blue:0.84, alpha:1.0)
             case .gray:
                 return UIColor(red:0.81, green:0.82, blue:0.81, alpha:1.0)
             }

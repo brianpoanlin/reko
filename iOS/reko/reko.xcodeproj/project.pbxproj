@@ -30,6 +30,7 @@
 		AF9F57CE21445464000CEA50 /* WaitingAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF9F57CD21445464000CEA50 /* WaitingAnimation.swift */; };
 		AFBAD1C8214369BA00F65C16 /* RekoCodeGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFBAD1C7214369BA00F65C16 /* RekoCodeGenerator.swift */; };
 		AFBAD1CA21436DE400F65C16 /* QRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFBAD1C921436DE400F65C16 /* QRCodeViewController.swift */; };
+		AFE6ADDD214498AF0097B738 /* reko_logo_white.png in Resources */ = {isa = PBXBuildFile; fileRef = AFE6ADDC214498AF0097B738 /* reko_logo_white.png */; };
 		EDC07E366F83829CEE01D579 /* Pods_reko.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F02F4D45E7A3C261D8DA830 /* Pods_reko.framework */; };
 /* End PBXBuildFile section */
 
@@ -73,6 +74,7 @@
 		AF9F57CD21445464000CEA50 /* WaitingAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingAnimation.swift; sourceTree = "<group>"; };
 		AFBAD1C7214369BA00F65C16 /* RekoCodeGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RekoCodeGenerator.swift; sourceTree = "<group>"; };
 		AFBAD1C921436DE400F65C16 /* QRCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeViewController.swift; sourceTree = "<group>"; };
+		AFE6ADDC214498AF0097B738 /* reko_logo_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = reko_logo_white.png; path = ../../../Resources/reko_logo_white.png; sourceTree = "<group>"; };
 		C5BBEDFF203F19D44824CACD /* Pods-rekoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rekoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-rekoTests/Pods-rekoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D6B600CAA062C1F76F7037DA /* Pods_rekoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_rekoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED4776D25B714030AF6884CF /* Pods-reko.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-reko.release.xcconfig"; path = "Pods/Target Support Files/Pods-reko/Pods-reko.release.xcconfig"; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 				AF4F94342143683B00E744FE /* Assets.xcassets */,
 				AF4F94312143683A00E744FE /* Main.storyboard */,
 				AF4F94362143683B00E744FE /* LaunchScreen.storyboard */,
+				AFE6ADDC214498AF0097B738 /* reko_logo_white.png */,
 				AF4F94392143683B00E744FE /* Info.plist */,
 			);
 			path = reko;
@@ -313,6 +316,7 @@
 				AF799D19214461CF000280F1 /* x.png in Resources */,
 				AF4F94352143683B00E744FE /* Assets.xcassets in Resources */,
 				AF4F94332143683A00E744FE /* Main.storyboard in Resources */,
+				AFE6ADDD214498AF0097B738 /* reko_logo_white.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

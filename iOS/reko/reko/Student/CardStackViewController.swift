@@ -35,14 +35,22 @@ class CardStackViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        UINavigationBar.appearance().barTintColor = UIColor.white
+        UINavigationBar.appearance().tintColor = UIColor.reko.red.color()
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor : UIColor.red]
+
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        UINavigationBar.appearance().barTintColor = UIColor.reko.red.color()
-        UINavigationBar.appearance().tintColor = UIColor.white
-        UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor : UIColor.white]
-
-        self.navigationController?.setNavigationBarHidden(false, animated: false)
         
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = false
+        self.navigationController?.view.backgroundColor = .clear
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
+        navigationController?.navigationBar.topItem?.title = "Student"
+
         progressIndicator = UIActivityIndicatorView(frame: CGRect(x: self.view.frame.width/2-50, y: self.view.frame.height/2-50, width: 100, height: 100))
         progressIndicator.activityIndicatorViewStyle = .gray
         view.addSubview(progressIndicator)
@@ -60,7 +68,7 @@ class CardStackViewController: UIViewController {
         stackOfCards[0].translatesAutoresizingMaskIntoConstraints = false
         stackOfCards[0].widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 1, constant: -20).isActive = true
         stackOfCards[0].heightAnchor.constraint(equalToConstant: 200).isActive = true
-        stackOfCards[0].topAnchor.constraint(equalTo: view.topAnchor, constant: 120).isActive = true
+        stackOfCards[0].topAnchor.constraint(equalTo: view.topAnchor, constant: 20).isActive = true
         stackOfCards[0].centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         stackOfCards[0].setupSubviewConstraints()
         
