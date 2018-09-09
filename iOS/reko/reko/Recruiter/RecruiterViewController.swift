@@ -14,6 +14,8 @@ class RecruiterViewController: UIViewController {
     private let socket = Socket()
     private var cardView: CardsView = CardsView(viewModel: CardsViewModel(type: CardType.PersonalInfo, elements: ["hunter", "lol"], id: 0))
     private let animation = WaitingAnimation()
+    private let slider = UISlider(frame: CGRect(x: 0, y: 0, width: 300, height: 30))
+    private let valueLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
     
     private let waitingLabel = UILabel()
     private let yesButton = YesButton()
@@ -45,39 +47,76 @@ class RecruiterViewController: UIViewController {
         view.backgroundColor = .white
         addAnimation()
         setupLabel()
-        setupYes()
-        setupNo()
-        navigationController?.navigationBar.topItem?.title = "Recruiter"
-        navigationController?.navigationBar.tintColor = UIColor.reko.red.color()
-
+        setupSlider()
+        self.navigationItem.title = "Recruiter"
+        navigationController?.navigationBar.tintColor = UIColor.white
 
         UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor : UIColor.reko.red.color()]
     }
     
-    private func setupYes() {
-        yesButton.addTarget(self, action: #selector(handleYes), for: .touchUpInside)
-        view.addSubview(yesButton)
-        yesButton.translatesAutoresizingMaskIntoConstraints = false
-        yesButton.widthAnchor.constraint(equalToConstant: 60).isActive = true
-        yesButton.heightAnchor.constraint(equalToConstant: 60).isActive = true
-        yesButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20).isActive = true
-        yesButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -40).isActive = true
+    private func setupSlider() {
+        slider.maximumValue = 100
+        slider.minimumValue = 0
+        slider.tintColor = UIColor.reko.red.color()
+
+        slider.maximumTrackTintColor = UIColor.reko.red.color()
+        slider.maximumTrackTintColor = UIColor.white
+
+        slider.value = 50
+        view.addSubview(slider)
+        
+        slider.translatesAutoresizingMaskIntoConstraints = false
+        slider.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20).isActive = true
+        slider.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20).isActive = true
+        slider.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        slider.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20).isActive = true
+        slider.addTarget(self, action: #selector(sliderValueChanged(_:)), for: .valueChanged)
+        slider.addTarget(self, action: #selector(onSliderValChanged(slider:event:)), for: [.touchUpInside, .touchUpOutside])
+        
+        valueLabel.textAlignment = .center
+        valueLabel.font = UIFont(name: "Helvetica Neue", size: 24)
+        valueLabel.text = "50%"
+        valueLabel.textColor = UIColor.reko.red.color()
+        
+        view.addSubview(valueLabel)
+        valueLabel.translatesAutoresizingMaskIntoConstraints = false
+        valueLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        valueLabel.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        valueLabel.bottomAnchor.constraint(equalTo: slider.topAnchor, constant: 5).isActive = true
+        
     }
     
-    private func setupNo() {
-        noButton.addTarget(self, action: #selector(handleNo), for: .touchUpInside)
-        view.addSubview(noButton)
-        noButton.translatesAutoresizingMaskIntoConstraints = false
-        noButton.widthAnchor.constraint(equalToConstant: 60).isActive = true
-        noButton.heightAnchor.constraint(equalToConstant: 60).isActive = true
-        noButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20).isActive = true
-        noButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -40).isActive = true
+    @objc
+    private func sliderValueChanged(_ sender: UISlider) {
+        let currentValue = Int(sender.value)
+        DispatchQueue.main.async {
+            self.valueLabel.text = "\(currentValue)%"
+        }
+    }
+    
+    @objc func onSliderValChanged(slider: UISlider, event: UIEvent) {
+        if let touchEvent = event.allTouches?.first {
+            if touchEvent.phase == .ended {
+                if focused {
+                    socket.sendImpression(type: currentCard.viewModel.category, impression: Int(slider.value))
+                    DispatchQueue.main.async {
+                        self.dismissView(self.view.viewWithTag(1000))
+                    }
+                }
+                
+                DispatchQueue.main.async {
+                    self.slider.value = 50
+                    self.valueLabel.text = "50%"
+                }
+                
+            }
+        }
     }
     
     private func setupLabel() {
         waitingLabel.text = "Waiting..."
         waitingLabel.textAlignment = .center
-        waitingLabel.textColor = UIColor.black
+        waitingLabel.textColor = UIColor.reko.red.color()
         view.addSubview(waitingLabel)
         
         waitingLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -85,25 +124,23 @@ class RecruiterViewController: UIViewController {
         waitingLabel.heightAnchor.constraint(equalToConstant: 50).isActive = true
         waitingLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         waitingLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-
-
     }
     
-    @objc
-    private func handleYes() {
-        if focused {
-            dismissView(view.viewWithTag(1000))
-            socket.sendImpression(type: currentCard.viewModel.category, impression: true)
-        }
-    }
-    
-    @objc
-    private func handleNo() {
-        if focused {
-            dismissView(view.viewWithTag(1000))
-            socket.sendImpression(type: currentCard.viewModel.category, impression: false)
-        }
-    }
+//    @objc
+//    private func handleYes() {
+//        if focused {
+//            dismissView(view.viewWithTag(1000))
+//            socket.sendImpression(type: currentCard.viewModel.category, impression: true)
+//        }
+//    }
+//
+//    @objc
+//    private func handleNo() {
+//        if focused {
+//            dismissView(view.viewWithTag(1000))
+//            socket.sendImpression(type: currentCard.viewModel.category, impression: false)
+//        }
+//    }
     
     private func addAnimation() {
         view.addSubview(animation)
@@ -139,20 +176,23 @@ class RecruiterViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    private func moveCardDown() {
-        print("RECEIVED CARD")
-        UIView.animate(withDuration: 0.5, animations: {
-            let translation = self.view.frame.height / 2
-            self.cardView.center = CGPoint(x: self.cardView.center.x, y: translation)
-        })
-    }
+//    private func moveCardDown() {
+//        print("RECEIVED CARD")
+//        UIView.animate(withDuration: 0.5, animations: {
+//            let translation = self.view.frame.height / 2
+//            self.cardView.center = CGPoint(x: self.cardView.center.x, y: translation)
+//        })
+//    }
     
     fileprivate func dismissView(_ view: UIView?) {
         if let view = view {
-            UIView.animate(withDuration: 0.5, animations: {
-                view.center = CGPoint(x: view.center.x, y: 2000)
+            UIView.animate(withDuration: 0.3, animations: {
+                view.transform = CGAffineTransform(scaleX: 0.01, y: 0.01)
                 view.alpha = 0
+                self.focused = false
+
             }, completion: { bool in
+                view.removeFromSuperview()
             })
         }
     }
@@ -160,12 +200,28 @@ class RecruiterViewController: UIViewController {
 }
 
 extension RecruiterViewController: SocketDelegate {
+    func statsReceived(data: [Any]) {
+        
+    }
+    
     func startedSession() {
         
     }
     
-    func endedSession() {
+    func endedSession(data: [Any]) {
+        let json: JSON = JSON(arrayLiteral: data.first)
+        print(json)
         
+        if let array: [JSON] = json.array {
+            if let employment = array.first {
+                print(employment["employment"])
+                let data = employment["employment"]
+                
+                let num = data["jobMatchProb"].intValue
+                present(ResultViewController(withTarget: num), animated: true, completion: nil)
+
+            }
+        }
     }
     
     func receivedCardStack(data: [Any]) {
@@ -173,13 +229,7 @@ extension RecruiterViewController: SocketDelegate {
     }
     
     func receivedNewCard(data: [Any]) {
-//        print(data)
-        self.view.viewWithTag(1000)?.removeFromSuperview()
-        focused = false
-//        view.subviews.forEach({
-//            $0.removeFromSuperview()
-//        })
-        
+
         let json: JSON = JSON(arrayLiteral: data.first)
 
         if let array: [JSON] = json.array {
@@ -201,24 +251,32 @@ extension RecruiterViewController: SocketDelegate {
                 let newCard = CardsView(viewModel: viewModel)
                 newCard.tag = 1000
                 
-                view.addSubview(newCard)
-                focused = true
-                newCard.translatesAutoresizingMaskIntoConstraints = false
-                newCard.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 1, constant: -20).isActive = true
-                newCard.heightAnchor.constraint(equalToConstant: 500).isActive = true
-                newCard.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-                newCard.topAnchor.constraint(equalTo: view.topAnchor, constant: -500).isActive = true
-                newCard.setupSubviewConstraints()
+                DispatchQueue.main.async {
+                    self.view.addSubview(newCard)
+                    self.focused = true
+                    newCard.translatesAutoresizingMaskIntoConstraints = false
+                    newCard.widthAnchor.constraint(equalTo: self.view.widthAnchor, multiplier: 1, constant: -20).isActive = true
+                    newCard.heightAnchor.constraint(equalToConstant: 500).isActive = true
+//                    newCard.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 60).isActive = true
+                    newCard.centerXAnchor.constraint(equalTo:self.view.centerXAnchor).isActive = true
+                    newCard.centerYAnchor.constraint(equalTo:self.view.centerYAnchor).isActive = true
+
+                    newCard.setupSubviewConstraints()
+                }
+                
                 
                 yesButton.backgroundColor = type.color
                 noButton.backgroundColor = type.color
                 animation.layer.borderColor = type.color.cgColor
+                valueLabel.textColor = type.color
+                slider.tintColor = type.color
+                waitingLabel.textColor = type.color
                 
                 currentCard = newCard
                 
                 DispatchQueue.main.async {
                     UIView.animate(withDuration: 0.5, animations: {
-                        let translation = self.view.frame.height / 2
+                        let translation = self.view.frame.height + 800
                         newCard.center = CGPoint(x: newCard.center.x, y: translation)
                     })
                 }

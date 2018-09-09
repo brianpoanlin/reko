@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.13.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="EkP-gv-lta">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.9"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -18,58 +17,92 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NZj-fK-OW9">
-                                <rect key="frame" x="160" y="313" width="55" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Student"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NZj-fK-OW9">
+                                <rect key="frame" x="65" y="501" width="245" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Jbq-DV-KLt"/>
+                                </constraints>
+                                <size key="titleShadowOffset" width="2" height="0.0"/>
+                                <state key="normal" title="Student">
+                                    <color key="titleColor" red="0.92549019610000005" green="0.25882352939999997" blue="0.25882352939999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="tappedStudent:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Tbk-hv-Kmf"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="euC-yb-meb">
-                                <rect key="frame" x="156" y="255" width="63" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Recruiter"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="reko" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="37t-qh-2Xn">
+                                <rect key="frame" x="135.5" y="343" width="104" height="68"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="104" id="b2D-va-rlU"/>
+                                    <constraint firstAttribute="height" constant="68" id="fAu-IQ-YjF"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="52"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="euC-yb-meb">
+                                <rect key="frame" x="65" y="433" width="245" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="idY-L8-Qwf"/>
+                                </constraints>
+                                <state key="normal" title="Recruiter">
+                                    <color key="titleColor" red="0.92549019610000005" green="0.25882352939999997" blue="0.25882352939999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="tappedRecruiter:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ddr-w5-HaN"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="reko_logo_white.png" translatesAutoresizingMaskIntoConstraints="NO" id="OU5-Sm-AZG">
+                                <rect key="frame" x="42" y="125" width="291" height="225"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="225" id="P1H-q4-vLl"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.92549019607843142" green="0.25882352941176467" blue="0.25882352941176467" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="NZj-fK-OW9" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="65" id="9Tf-qL-fiD"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="NZj-fK-OW9" secondAttribute="bottom" constant="116" id="LYs-tc-eel"/>
+                            <constraint firstItem="37t-qh-2Xn" firstAttribute="top" secondItem="OU5-Sm-AZG" secondAttribute="bottom" constant="-7" id="NNJ-2w-QV3"/>
+                            <constraint firstItem="euC-yb-meb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="65" id="OmN-qP-p7l"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="euC-yb-meb" secondAttribute="trailing" constant="65" id="Yx0-hB-EXQ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="NZj-fK-OW9" secondAttribute="trailing" constant="65" id="ZGA-fi-Whk"/>
+                            <constraint firstItem="OU5-Sm-AZG" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="42" id="gp2-xW-ZxV"/>
+                            <constraint firstItem="NZj-fK-OW9" firstAttribute="top" secondItem="euC-yb-meb" secondAttribute="bottom" constant="18" id="lOI-Cd-6vk"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="OU5-Sm-AZG" secondAttribute="trailing" constant="42" id="qh1-mC-3XR"/>
+                            <constraint firstItem="OU5-Sm-AZG" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="61" id="w70-Md-aQE"/>
+                            <constraint firstItem="37t-qh-2Xn" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="w76-tf-K8j"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" id="Rxh-kg-I5X"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1220" y="92.203898050974516"/>
         </scene>
-        <!--Scanner View Controller-->
-        <scene sceneID="6cM-rf-YHw">
+        <!--Navigation Controller-->
+        <scene sceneID="B0a-K3-9Zx">
             <objects>
-                <viewController id="y3q-u7-fRW" customClass="QRScannerViewController" customModule="reko" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="hB6-GV-aOe">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fih-tN-5np">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                            </imageView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="fih-tN-5np" firstAttribute="top" secondItem="hB6-GV-aOe" secondAttribute="top" id="GgV-TQ-ThT"/>
-                            <constraint firstItem="fih-tN-5np" firstAttribute="leading" secondItem="nLj-ef-1lH" secondAttribute="leading" id="gvn-Lb-XS8"/>
-                            <constraint firstItem="fih-tN-5np" firstAttribute="bottom" secondItem="nLj-ef-1lH" secondAttribute="bottom" id="h0e-9A-flw"/>
-                            <constraint firstItem="fih-tN-5np" firstAttribute="trailing" secondItem="nLj-ef-1lH" secondAttribute="trailing" id="qnh-gJ-BZB"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="nLj-ef-1lH"/>
-                    </view>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="EkP-gv-lta" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="rs6-6b-DRz">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
                     <connections>
-                        <outlet property="imgView" destination="fih-tN-5np" id="lbX-41-YD2"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="eRO-f1-hLd"/>
                     </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="gLD-rG-aJn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EHE-Qb-fQB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="999.20000000000005" y="130.88455772113943"/>
+            <point key="canvasLocation" x="280.80000000000001" y="92.203898050974516"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="reko_logo_white.png" width="2000" height="2000"/>
+    </resources>
 </document>

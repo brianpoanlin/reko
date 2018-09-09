@@ -20,6 +20,8 @@ class CardStackViewController: UIViewController {
     private var focusedTag: Int!
     private let socket = Socket()
     
+    private let endSessionButton = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 30))
+    
     private var progressIndicator: UIActivityIndicatorView!
     
     var maskView = UIView()
@@ -34,22 +36,60 @@ class CardStackViewController: UIViewController {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
 
+    override func viewWillAppear(_ animated: Bool) {
+        UINavigationBar.appearance().barTintColor = UIColor.white
+        UINavigationBar.appearance().tintColor = UIColor.white
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor : UIColor.red]
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        UINavigationBar.appearance().barTintColor = UIColor.reko.red.color()
-        UINavigationBar.appearance().tintColor = UIColor.white
-        UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor : UIColor.white]
-
-        self.navigationController?.setNavigationBarHidden(false, animated: false)
         
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = false
+        self.navigationController?.view.backgroundColor = .clear
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
+        navigationController?.navigationBar.topItem?.title = "Student"
+
+        let button = UIButton.init(type: .custom)
+        button.setImage(UIImage.init(named: "connect_icon.png"), for: .normal)
+        button.addTarget(self, action:#selector(connectTapped), for:.touchUpInside)
+        button.frame = CGRect.init(x: 0, y: 0, width: 20, height: 20) //CGRectMake(0, 0, 30, 30)
+        let barButton = UIBarButtonItem.init(customView: button)
+        self.navigationItem.rightBarButtonItem = barButton
+        
+        
+        self.navigationItem.title = "Student"
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+
         progressIndicator = UIActivityIndicatorView(frame: CGRect(x: self.view.frame.width/2-50, y: self.view.frame.height/2-50, width: 100, height: 100))
         progressIndicator.activityIndicatorViewStyle = .gray
         view.addSubview(progressIndicator)
         progressIndicator.startAnimating()
     }
     
+    @objc
+    private func connectTapped() {
+        present(QRCodeViewController(withContent: "brianlin.com"), animated: true, completion: nil )
+    }
+    
     private func setupView() {
+        
+        endSessionButton.setTitle("End Interview", for: .normal)
+        endSessionButton.setTitleColor(UIColor.reko.red.color(), for: .normal)
+        endSessionButton.setTitleColor(UIColor.reko.gray.color(), for: .highlighted)
+        endSessionButton.backgroundColor = UIColor.clear
+        endSessionButton.layer.cornerRadius = 5
+        endSessionButton.layer.borderColor = UIColor.reko.red.color().cgColor
+        endSessionButton.layer.borderWidth = 2
+        endSessionButton.addTarget(self, action: #selector(endInterviewTapped), for: .touchUpInside)
+        view.addSubview(endSessionButton)
+        
         stackOfCards.forEach({
             view.addSubview($0)
             $0.delegate = self
@@ -60,7 +100,7 @@ class CardStackViewController: UIViewController {
         stackOfCards[0].translatesAutoresizingMaskIntoConstraints = false
         stackOfCards[0].widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 1, constant: -20).isActive = true
         stackOfCards[0].heightAnchor.constraint(equalToConstant: 200).isActive = true
-        stackOfCards[0].topAnchor.constraint(equalTo: view.topAnchor, constant: 120).isActive = true
+        stackOfCards[0].topAnchor.constraint(equalTo: view.topAnchor, constant: 20).isActive = true
         stackOfCards[0].centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         stackOfCards[0].setupSubviewConstraints()
         
@@ -71,14 +111,20 @@ class CardStackViewController: UIViewController {
             stackOfCards[i].topAnchor.constraint(equalTo: stackOfCards[i-1].topAnchor, constant: 40).isActive = true
             stackOfCards[i].centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
             stackOfCards[i].setupSubviewConstraints()
-
         }
+        
+        endSessionButton.translatesAutoresizingMaskIntoConstraints = false
+        endSessionButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        endSessionButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        endSessionButton.widthAnchor.constraint(equalToConstant: 150).isActive = true
+        endSessionButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -50).isActive = true
     }
     
-    private func resetCards() {
-       
+    @objc
+    private func endInterviewTapped() {
+        socket.endSession()
+        self.present(WaitingViewController(), animated: true, completion: nil)
     }
-
 }
 
 extension CardStackViewController: CardsViewDelegate {
@@ -97,7 +143,6 @@ extension CardStackViewController: CardsViewDelegate {
                     sender.transform = CGAffineTransform(translationX: 0.0, y: -translation)
                 }, completion: { bool in
                     print("Resetted")
-                    self.resetCards()
                 })
             })
         } else if !focused {
@@ -121,7 +166,6 @@ extension CardStackViewController: CardsViewDelegate {
     
     func swipedUp(sender: CardsView) {
         print("Swiped up!!!!!")
-        if focused && focusedTag == sender.id {
             view.bringSubview(toFront: sender)
             socket.sendUpdate(sender: sender)
             UIView.animate(withDuration: 0.4, animations: {
@@ -132,7 +176,6 @@ extension CardStackViewController: CardsViewDelegate {
             })
             
             focused = false
-        }
     }
     
     func tapped(sender: CardsView) {
@@ -166,7 +209,6 @@ extension CardStackViewController: CardsViewDelegate {
                     sender.transform = CGAffineTransform(translationX: 0.0, y: -translation)
                 }, completion: { bool in
                     print("Resetted")
-                    self.resetCards()
                 })
             })
         }
@@ -182,11 +224,15 @@ extension CardStackViewController: CardsViewDelegate {
 }
 
 extension CardStackViewController: SocketDelegate {
+    func statsReceived(data: [Any]) {
+        
+    }
+    
     func startedSession() {
         
     }
     
-    func endedSession() {
+    func endedSession(data: [Any]) {
         
     }
     
