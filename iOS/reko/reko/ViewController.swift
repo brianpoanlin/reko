@@ -55,6 +55,8 @@ class ViewController: UIViewController {
 
 //        present(navigationController, animated: true, completion: nil)
         self.navigationController?.pushViewController(RecruiterViewController(), animated: true)
+//        self.navigationController?.present(ResultViewController(), animated: true, completion: nil)
+
     }
     
 }

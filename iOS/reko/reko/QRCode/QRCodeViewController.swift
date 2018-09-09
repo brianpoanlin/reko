@@ -70,6 +70,10 @@ class QRCodeViewController: UIViewController {
 }
 
 extension QRCodeViewController: SocketDelegate {
+    func endedSession(data: [Any]) {
+        
+    }
+    
     func receivedNewCard(data: [Any]) {
         
     }
@@ -82,10 +86,5 @@ extension QRCodeViewController: SocketDelegate {
         print("Session Started")
         self.dismiss(animated: true, completion: nil)
     }
-    
-    func endedSession() {
-        
-    }
-    
     
 }

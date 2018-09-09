@@ -20,6 +20,8 @@ class CardStackViewController: UIViewController {
     private var focusedTag: Int!
     private let socket = Socket()
     
+    private let endSessionButton = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 30))
+    
     private var progressIndicator: UIActivityIndicatorView!
     
     var maskView = UIView()
@@ -33,6 +35,10 @@ class CardStackViewController: UIViewController {
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -73,6 +79,17 @@ class CardStackViewController: UIViewController {
     }
     
     private func setupView() {
+        
+        endSessionButton.setTitle("End Interview", for: .normal)
+        endSessionButton.setTitleColor(UIColor.reko.red.color(), for: .normal)
+        endSessionButton.setTitleColor(UIColor.reko.gray.color(), for: .highlighted)
+        endSessionButton.backgroundColor = UIColor.clear
+        endSessionButton.layer.cornerRadius = 5
+        endSessionButton.layer.borderColor = UIColor.reko.red.color().cgColor
+        endSessionButton.layer.borderWidth = 2
+        endSessionButton.addTarget(self, action: #selector(endInterviewTapped), for: .touchUpInside)
+        view.addSubview(endSessionButton)
+        
         stackOfCards.forEach({
             view.addSubview($0)
             $0.delegate = self
@@ -94,14 +111,19 @@ class CardStackViewController: UIViewController {
             stackOfCards[i].topAnchor.constraint(equalTo: stackOfCards[i-1].topAnchor, constant: 40).isActive = true
             stackOfCards[i].centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
             stackOfCards[i].setupSubviewConstraints()
-
         }
+        
+        endSessionButton.translatesAutoresizingMaskIntoConstraints = false
+        endSessionButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        endSessionButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        endSessionButton.widthAnchor.constraint(equalToConstant: 150).isActive = true
+        endSessionButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -50).isActive = true
     }
     
-    private func resetCards() {
-       
+    @objc
+    private func endInterviewTapped() {
+        socket.endSession()
     }
-
 }
 
 extension CardStackViewController: CardsViewDelegate {
@@ -120,7 +142,6 @@ extension CardStackViewController: CardsViewDelegate {
                     sender.transform = CGAffineTransform(translationX: 0.0, y: -translation)
                 }, completion: { bool in
                     print("Resetted")
-                    self.resetCards()
                 })
             })
         } else if !focused {
@@ -189,7 +210,6 @@ extension CardStackViewController: CardsViewDelegate {
                     sender.transform = CGAffineTransform(translationX: 0.0, y: -translation)
                 }, completion: { bool in
                     print("Resetted")
-                    self.resetCards()
                 })
             })
         }
@@ -209,7 +229,7 @@ extension CardStackViewController: SocketDelegate {
         
     }
     
-    func endedSession() {
+    func endedSession(data: [Any]) {
         
     }
     

@@ -19,6 +19,7 @@
 		AF4F94352143683B00E744FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF4F94342143683B00E744FE /* Assets.xcassets */; };
 		AF4F94382143683B00E744FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF4F94362143683B00E744FE /* LaunchScreen.storyboard */; };
 		AF4F94432143683B00E744FE /* rekoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4F94422143683B00E744FE /* rekoTests.swift */; };
+		AF623DD02144E0B3009A44F1 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF623DCF2144E0B3009A44F1 /* ResultViewController.swift */; };
 		AF6A44BF21437E1600106C33 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6A44BE21437E1600106C33 /* CardView.swift */; };
 		AF6A44C121437E3500106C33 /* CardsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6A44C021437E3500106C33 /* CardsViewModel.swift */; };
 		AF6A44C421437F3200106C33 /* reko+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6A44C321437F3200106C33 /* reko+UIColor.swift */; };
@@ -63,6 +64,7 @@
 		AF4F943E2143683B00E744FE /* rekoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = rekoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF4F94422143683B00E744FE /* rekoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rekoTests.swift; sourceTree = "<group>"; };
 		AF4F94442143683B00E744FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AF623DCF2144E0B3009A44F1 /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 		AF6A44BE21437E1600106C33 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		AF6A44C021437E3500106C33 /* CardsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsViewModel.swift; sourceTree = "<group>"; };
 		AF6A44C321437F3200106C33 /* reko+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "reko+UIColor.swift"; sourceTree = "<group>"; };
@@ -164,6 +166,7 @@
 			children = (
 				AF4F942D2143683A00E744FE /* AppDelegate.swift */,
 				AF4F942F2143683A00E744FE /* ViewController.swift */,
+				AF623DCE2144E09B009A44F1 /* Result */,
 				AF1ADA4C21440E93005AE5AC /* Recruiter */,
 				AF36312821438CDE005337F7 /* Student */,
 				AF6A44C221437F2200106C33 /* Colors */,
@@ -186,6 +189,14 @@
 				AF4F94442143683B00E744FE /* Info.plist */,
 			);
 			path = rekoTests;
+			sourceTree = "<group>";
+		};
+		AF623DCE2144E09B009A44F1 /* Result */ = {
+			isa = PBXGroup;
+			children = (
+				AF623DCF2144E0B3009A44F1 /* ResultViewController.swift */,
+			);
+			path = Result;
 			sourceTree = "<group>";
 		};
 		AF6A44BD21437E0100106C33 /* Cards */ = {
@@ -379,6 +390,7 @@
 				"${BUILT_PRODUCTS_DIR}/Socket.IO-Client-Swift/SocketIO.framework",
 				"${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/UICircularProgressRing/UICircularProgressRing.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -387,6 +399,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SocketIO.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UICircularProgressRing.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -403,6 +416,7 @@
 				AF4F94302143683A00E744FE /* ViewController.swift in Sources */,
 				AF1ADA4E21440ECA005AE5AC /* RecruiterViewController.swift in Sources */,
 				AF4F942E2143683A00E744FE /* AppDelegate.swift in Sources */,
+				AF623DD02144E0B3009A44F1 /* ResultViewController.swift in Sources */,
 				AF6A44C121437E3500106C33 /* CardsViewModel.swift in Sources */,
 				AF799D2121446A4E000280F1 /* QRScannerViewController.swift in Sources */,
 				AF9F57CE21445464000CEA50 /* WaitingAnimation.swift in Sources */,

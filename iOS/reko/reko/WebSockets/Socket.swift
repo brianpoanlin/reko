@@ -13,7 +13,7 @@ public protocol SocketDelegate {
     func receivedNewCard(data: [Any])
     func receivedCardStack(data: [Any])
     func startedSession()
-    func endedSession()
+    func endedSession(data: [Any])
 }
 
 public class Socket {
@@ -72,8 +72,8 @@ public class Socket {
             return
         }
         
-        client.on("end_session") {[weak self] data, ack in
-            self?.delegate?.endedSession()
+        client.on("stats") {[weak self] data, ack in
+            self?.delegate?.endedSession(data: data)
             return
         }
     }

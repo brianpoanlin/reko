@@ -116,7 +116,7 @@ class RecruiterViewController: UIViewController {
     private func setupLabel() {
         waitingLabel.text = "Waiting..."
         waitingLabel.textAlignment = .center
-        waitingLabel.textColor = UIColor.white
+        waitingLabel.textColor = UIColor.reko.red.color()
         view.addSubview(waitingLabel)
         
         waitingLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -204,8 +204,29 @@ extension RecruiterViewController: SocketDelegate {
         
     }
     
-    func endedSession() {
+    func endedSession(data: [Any]) {
+        print("SESSION ENDED!!!!!")
+//        print(data)
+        let json: JSON = JSON(arrayLiteral: data.first)
+        print(json)
         
+        if let array: [JSON] = json.array {
+            if let employment = array.first {
+                print(employment["employment"])
+                let data = employment["employment"]
+                
+                let num = data["jobMatchProb"].intValue
+                present(ResultViewController(withTarget: num), animated: true, completion: nil)
+
+            }
+        }
+
+//        if let number = json["employment"].string {
+//            print(number)
+//            if let float = Float(number) {
+//                present(ResultViewController(withTarget: float), animated: true, completion: nil)
+//            }
+//        }
     }
     
     func receivedCardStack(data: [Any]) {
@@ -213,11 +234,7 @@ extension RecruiterViewController: SocketDelegate {
     }
     
     func receivedNewCard(data: [Any]) {
-//        print(data)
-//        view.subviews.forEach({
-//            $0.removeFromSuperview()
-//        })
-        
+
         let json: JSON = JSON(arrayLiteral: data.first)
 
         if let array: [JSON] = json.array {
@@ -258,6 +275,7 @@ extension RecruiterViewController: SocketDelegate {
                 animation.layer.borderColor = type.color.cgColor
                 valueLabel.textColor = type.color
                 slider.tintColor = type.color
+                waitingLabel.textColor = type.color
                 
                 currentCard = newCard
                 
