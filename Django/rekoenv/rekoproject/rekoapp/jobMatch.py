@@ -15,7 +15,7 @@ from sklearn.neighbors import KNeighborsClassifier
 from sklearn.model_selection import train_test_split
 from sklearn import preprocessing
 
-def read_mongo(connection, collection, recruiter_id, user_id):
+def read_mongo(connection, collection, recruiter_id, student_id):
     # Connect to MongoDB
     conn = MongoClient(connection)
 
@@ -33,7 +33,8 @@ def read_mongo(connection, collection, recruiter_id, user_id):
     imp = data['imp']
     for x in imp:
         for y in x:
-            if (y['ratings']['result'] == -1):
+            print (y)
+            if (y['ratings']['result'] == -1 and y['user'] == student_id):
                 testData.append(y['ratings'])
             else:
                 trainData.append(y['ratings'])
@@ -47,13 +48,8 @@ def read_mongo(connection, collection, recruiter_id, user_id):
     return trainData, testData
 
 def jobPredict(X_train, y_train, X_predict):
-    model = GradientBoostingClassifier(n_estimators = 1000, learning_rate = 1, max_depth = 1, random_state = 0)
-    #model = RandomForestClassifier(n_estimators = 1000)
-    #model = AdaBoostClassifier(n_estimators = 1000, learning_rate = 1, max_depth = 1, random_state = 0)
-    #model = LogisticRegression()
-    #model = GaussianNB()
-    #model = SVC()
-    #model = KNeighborsClassifier(n_neighbors = 1000)
+    model = LogisticRegression()
+    # model = RandomForestClassifier(n_estimators = 1000)
 
     X_tr, X_te, y_tr, y_te = train_test_split(X_train, y_train, test_size=0.2, random_state=42)
 
@@ -85,7 +81,7 @@ def jobMatchApi(requestJson):
     returnJson = {
         'student_id': student_id,
         'jobMatchProb': jobMatchProb * 100,
-        'accuracy': accuracy
+        'accuracy': accuracy * 100
     }
 
     return returnJson
