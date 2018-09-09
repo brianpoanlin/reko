@@ -1,6 +1,5 @@
 PODS:
   - Alamofire (4.7.3)
-  - MidpointSlider (1.0.0)
   - QRCodeGenerator (1.0.5)
   - Socket.IO-Client-Swift (13.3.0):
     - Starscream (~> 3.0.2)
@@ -9,7 +8,6 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
-  - MidpointSlider
   - QRCodeGenerator
   - Socket.IO-Client-Swift (~> 13.3.0)
   - SwiftyJSON
@@ -17,7 +15,6 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
-    - MidpointSlider
     - QRCodeGenerator
     - Socket.IO-Client-Swift
     - Starscream
@@ -25,12 +22,11 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
-  MidpointSlider: f98e881257c8693f9e3fba4e00c2fcda84a38b75
   QRCodeGenerator: dfa6981a0e571c0f7d90cc15e9ecc6d849a14d27
   Socket.IO-Client-Swift: 0afb192a562db90d50e3f7f7421c06925a3f0179
   Starscream: faf918b2f2eff7d5dd21180646bf015a669673bd
   SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
 
-PODFILE CHECKSUM: f0ac54ffe1df84710c443869d5f322e7a09833ed
+PODFILE CHECKSUM: f67475982e6327a0b4ae408e47a8ae13493e4bae
 
 COCOAPODS: 1.5.3

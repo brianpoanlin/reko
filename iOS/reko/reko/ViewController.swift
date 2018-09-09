@@ -53,7 +53,8 @@ class ViewController: UIViewController {
 //        let navigationController = UINavigationController(rootViewController: QRScannerViewController())
         let navigationController = UINavigationController(rootViewController: RecruiterViewController())
 
-        present(navigationController, animated: true, completion: nil)
+//        present(navigationController, animated: true, completion: nil)
+        self.navigationController?.pushViewController(RecruiterViewController(), animated: true)
     }
     
 }

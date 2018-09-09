@@ -90,7 +90,7 @@ public class Socket {
         client.emit("push card", ["card" : sender.id, "user" : "poppro"])
     }
     
-    public func sendImpression(type: CardType, impression: Bool) {
+    public func sendImpression(type: CardType, impression: Int) {
         client.emit("register_impression", ["type" : type.abbreviation, "impressed" : impression])
     }
     
