@@ -1,3 +1,5 @@
+![alt text](https://github.com/brianpoanlin/reko/blob/master/Resources/reko_logo_red.png?raw=true)
+
 ## Inspiration
 Let’s take you through a simple encounter between a recruiter and an aspiring student looking for a job during a career fair. The student greets the recruiter eagerly after having to wait in a 45 minute line and hands him his beautifully crafted paper resume. The recruiter, having been talking to thousands of students knows that his time is short and tries to skim the article rapidly, inevitably skipping important skills that the student brings to the table. In the meantime, the clock has been ticking and while the recruiter is still reading non-relevant parts of the resume the student waits, blankly staring at the recruiter. The recruiter finally looks up only to be able to exchange a few words of acknowledge and a good luck before having to move onto the next student. And the resume? It ends up tossed in the back of a bin and jumbled together with thousands of other resumes. The clear bottleneck here is the use of the paper Resume.
 
